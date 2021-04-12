@@ -58,13 +58,37 @@
 			children = (
 				DDA318D42623CA0000CC1A5D /* AppDelegate.swift */,
 				DDA318D62623CA0000CC1A5D /* SceneDelegate.swift */,
-				DDA318D82623CA0000CC1A5D /* ViewController.swift */,
-				DDA318DA2623CA0000CC1A5D /* Main.storyboard */,
+				DDA318EB2623CA4500CC1A5D /* Model */,
+				DDA318E92623CA0A00CC1A5D /* View */,
+				DDA318EA2623CA1100CC1A5D /* Controller */,
 				DDA318DD2623CA0000CC1A5D /* Assets.xcassets */,
 				DDA318DF2623CA0000CC1A5D /* LaunchScreen.storyboard */,
 				DDA318E22623CA0000CC1A5D /* Info.plist */,
 			);
 			path = "Restaurant Recommendations";
+			sourceTree = "<group>";
+		};
+		DDA318E92623CA0A00CC1A5D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DDA318DA2623CA0000CC1A5D /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DDA318EA2623CA1100CC1A5D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DDA318D82623CA0000CC1A5D /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DDA318EB2623CA4500CC1A5D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
