@@ -3,12 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		B64DACDF265298B1D7F5C146 /* Pods_Restaurant_Recommendations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 221CC578EAA9B0EC4FB7DEED /* Pods_Restaurant_Recommendations.framework */; };
 		DD28643E2624B0B60049B1C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD28643D2624B0B60049B1C5 /* GoogleService-Info.plist */; };
+		DD2864552624B41F0049B1C5 /* RestaurantObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2864542624B41F0049B1C5 /* RestaurantObject.swift */; };
+		DD2864592624B4830049B1C5 /* JsonParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2864582624B4830049B1C5 /* JsonParse.swift */; };
+		DD28645F2624B4FD0049B1C5 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD28645E2624B4FD0049B1C5 /* Search.swift */; };
+		DD2864632624B5E40049B1C5 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2864622624B5E40049B1C5 /* UserInformation.swift */; };
+		DD2864672624B6160049B1C5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2864662624B6160049B1C5 /* User.swift */; };
+		DD28646A2624B6260049B1C5 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2864692624B6260049B1C5 /* FirebaseHelper.swift */; };
 		DDA318D52623CA0000CC1A5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA318D42623CA0000CC1A5D /* AppDelegate.swift */; };
 		DDA318D72623CA0000CC1A5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA318D62623CA0000CC1A5D /* SceneDelegate.swift */; };
 		DDA318D92623CA0000CC1A5D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA318D82623CA0000CC1A5D /* ViewController.swift */; };
@@ -22,6 +28,12 @@
 		221CC578EAA9B0EC4FB7DEED /* Pods_Restaurant_Recommendations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Restaurant_Recommendations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BEDAFE3747856C4FBA51EE6 /* Pods-Restaurant Recommendations.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Restaurant Recommendations.debug.xcconfig"; path = "Target Support Files/Pods-Restaurant Recommendations/Pods-Restaurant Recommendations.debug.xcconfig"; sourceTree = "<group>"; };
 		DD28643D2624B0B60049B1C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DD2864542624B41F0049B1C5 /* RestaurantObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantObject.swift; sourceTree = "<group>"; };
+		DD2864582624B4830049B1C5 /* JsonParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParse.swift; sourceTree = "<group>"; };
+		DD28645E2624B4FD0049B1C5 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		DD2864622624B5E40049B1C5 /* UserInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
+		DD2864662624B6160049B1C5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DD2864692624B6260049B1C5 /* FirebaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
 		DDA318D12623CA0000CC1A5D /* Restaurant Recommendations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Restaurant Recommendations.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA318D42623CA0000CC1A5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDA318D62623CA0000CC1A5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,8 +70,34 @@
 				6BEDAFE3747856C4FBA51EE6 /* Pods-Restaurant Recommendations.debug.xcconfig */,
 				1770F5A38596B641BCB5C871 /* Pods-Restaurant Recommendations.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DD28645B2624B4960049B1C5 /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				DD2864582624B4830049B1C5 /* JsonParse.swift */,
+			);
+			path = Json;
+			sourceTree = "<group>";
+		};
+		DD28645D2624B4D00049B1C5 /* Api and Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				DD28645E2624B4FD0049B1C5 /* Search.swift */,
+				DD2864622624B5E40049B1C5 /* UserInformation.swift */,
+				DD2864692624B6260049B1C5 /* FirebaseHelper.swift */,
+			);
+			path = "Api and Firebase";
+			sourceTree = "<group>";
+		};
+		DD28646C2624B6970049B1C5 /* User and Restaurant Object */ = {
+			isa = PBXGroup;
+			children = (
+				DD2864542624B41F0049B1C5 /* RestaurantObject.swift */,
+				DD2864662624B6160049B1C5 /* User.swift */,
+			);
+			path = "User and Restaurant Object";
 			sourceTree = "<group>";
 		};
 		DDA318C82623CA0000CC1A5D = {
@@ -115,6 +153,9 @@
 		DDA318EB2623CA4500CC1A5D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DD28646C2624B6970049B1C5 /* User and Restaurant Object */,
+				DD28645D2624B4D00049B1C5 /* Api and Firebase */,
+				DD28645B2624B4960049B1C5 /* Json */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -234,8 +275,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD2864632624B5E40049B1C5 /* UserInformation.swift in Sources */,
+				DD2864592624B4830049B1C5 /* JsonParse.swift in Sources */,
 				DDA318D92623CA0000CC1A5D /* ViewController.swift in Sources */,
 				DDA318D52623CA0000CC1A5D /* AppDelegate.swift in Sources */,
+				DD28646A2624B6260049B1C5 /* FirebaseHelper.swift in Sources */,
+				DD2864672624B6160049B1C5 /* User.swift in Sources */,
+				DD2864552624B41F0049B1C5 /* RestaurantObject.swift in Sources */,
+				DD28645F2624B4FD0049B1C5 /* Search.swift in Sources */,
 				DDA318D72623CA0000CC1A5D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
