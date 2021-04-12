@@ -15,7 +15,7 @@ Restaurant recommendation app for friends, family, and couples who have a hard t
 - **Story:** Users add restaurants they would like to dine at. Then they can add friends and get recommendations based on restaurants in both user's list.
 - **Market:** Any individual who needs help deciding where to dine at.
 - **Habit:** This app would be used whenever a user needs to figure out where to eat. I am asumming this app won't be used daily by a user but weekly or monthly.
-- **Scope:** In the beginning this app would be among friends. But in the future it can evolve into a app that can just give you recommendations not needing another user's list.
+- **Scope:** In the beginning this app would be among friends. But in the future it can evolve into a app that can just give you recommendations not needing another user's list. Also in the future this app can grow into a app that can give recommendations for a group of people and not just a single friend.
 
 ## Product Spec
 
