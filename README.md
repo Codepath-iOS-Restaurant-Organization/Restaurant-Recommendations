@@ -7,7 +7,7 @@
 
 ## Overview
 ### Description
-Restaruant recommendation app for friends, family, and couples who have a hard time deciding where to eat.
+Restaurant recommendation app for friends, family, and couples who have a hard time deciding where to eat.
 
 ### App Evaluation
 - **Category:** Social Networking / Restaurants / Food
