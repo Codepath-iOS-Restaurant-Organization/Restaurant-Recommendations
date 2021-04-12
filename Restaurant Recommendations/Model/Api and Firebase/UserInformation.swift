@@ -20,6 +20,9 @@ class UserInformation: FirebaseHelper {
     var userDelegate: userProtocol?
     
     
+    
+    
+    //MARK:: Functions You Call
     func getTotalUserInfo(email: String){
         userReturned.email = email
         getUserRestaurants(email: email)

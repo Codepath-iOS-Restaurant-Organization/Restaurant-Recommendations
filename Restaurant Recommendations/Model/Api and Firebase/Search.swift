@@ -33,7 +33,7 @@ class Search {
     
 
     
-    
+    //MARK:: Methods You Call
     func getSingleRestaurant(restaurantID: String) {
         
         let url = "https://api.yelp.com/v3/businesses/\(restaurantID)"
@@ -103,6 +103,25 @@ class Search {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //MARK:: My helper functions
     func singleParse(responseData: Data){
         
         let decoder = JSONDecoder()
