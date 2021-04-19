@@ -116,41 +116,41 @@ func signUpUser(userEmail: String, userPassword: String){
 
 - LoginViewController:
     - (Read/GET) Check to see if user exist's
-    let firebase = FirebaseHelper()
-    firebase.signInUser(userEmail: String, password: String)
+      - let firebase = FirebaseHelper()
+      - firebase.signInUser(userEmail: String, password: String)
     
     - (Create/POST) Authenticate a new user. Add user email to database.
-    firebase.signUpUser(userEmail: String, password: String)
+      - firebase.signUpUser(userEmail: String, password: String)
 
 - HomeViewController:
     - (Read/GET) Get all of user's friends.
-        let user = UserInformation()
-        user.getUserFriends(email: String)
+        - let user = UserInformation()
+        - user.getUserFriends(email: String)
     - (Read/GET) Get all of user's favorite restaurants.
-        user.getUserRestaurants(email: String)
+        - user.getUserRestaurants(email: String)
     - (Create/POST) Add a new friend
-    firebase.addFriend(friendName: String)
+      - firebase.addFriend(friendName: String)
     - (Create/POST) Upload profile picture
-    firebase.uploadProfilePicture(email: String, image: UIImage)
+      - firebase.uploadProfilePicture(email: String, image: UIImage)
     - (Read/GET) Get all of user's favorite restaurant details from yelp
-    search.getSingleRestaurant(restaurantID: String)
+      - search.getSingleRestaurant(restaurantID: String)
     
 - SearchViewController:
     - (Read/GET) Get restaurants from user entered text.
-    let search = Search()
-    search.performSearchApiRequest(lattitude: String, longtitude: String, restaurantName: String)
+      - let search = Search()
+      - search.performSearchApiRequest(lattitude: String, longtitude: String, restaurantName: String)
     
 - RestaurantDetailViewController:
     - (Create/POST) Add a restaurnt id to user's favorite restaurants list
-    firebase.addFavoriteRestaurant(theID: String)
+      - firebase.addFavoriteRestaurant(theID: String)
     
 - FriendsTableViewController:
     - (Read/GET) Get friends profile pictures
-    user.getProfilePicture(email: String)
+      - user.getProfilePicture(email: String)
     
 - RecommendationTableViewController:
     - (Read/GET)Get selected friend's favorite restaurants to compare with current user
-    fried.getUserRestaurants(email: String)
+      - friend.getUserRestaurants(email: String)
 
 ### API Endpoints
 #### Yelp Api
