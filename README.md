@@ -93,10 +93,74 @@ Restaurant recommendation app for friends, family, and couples who have a hard t
 
 
 ## Schema 
-[This section will be completed in Unit 9]
-### Models
-[Add table of models]
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+All network calls are broken down into three helper classes: FirebaseHelper, Search, & UserInformation. Just intialize class and call functions written ex:
+let firebase = FirebaseHelper()
+firebase.signInUser or .signUpUser or .addFriend or .addRestaurant ...
+
+Example of a function inside one of the classes:
+
+func signUpUser(userEmail: String, userPassword: String){
+        
+        Auth.auth().createUser(withEmail: userEmail, password: userPassword) { (results, error) in
+            
+            if let e = error {
+                self.delegate?.error(error: e)
+            }
+            else {
+                self.delegate?.signUpSuccessful()
+            }
+        }
+    }
+
+
+- LoginViewController:
+    - (Read/GET) Check to see if user exist's
+    let firebase = FirebaseHelper()
+    firebase.signInUser(userEmail: String, password: String)
+    
+    - (Create/POST) Authenticate a new user. Add user email to database.
+    firebase.signUpUser(userEmail: String, password: String)
+
+- HomeViewController:
+    - (Read/GET) Get all of user's friends.
+        let user = UserInformation()
+        user.getUserFriends(email: String)
+    - (Read/GET) Get all of user's favorite restaurants.
+        user.getUserRestaurants(email: String)
+    - (Create/POST) Add a new friend
+    firebase.addFriend(friendName: String)
+    - (Create/POST) Upload profile picture
+    firebase.uploadProfilePicture(email: String, image: UIImage)
+    - (Read/GET) Get all of user's favorite restaurant details from yelp
+    search.getSingleRestaurant(restaurantID: String)
+    
+- SearchViewController:
+    - (Read/GET) Get restaurants from user entered text.
+    let search = Search()
+    search.performSearchApiRequest(lattitude: String, longtitude: String, restaurantName: String)
+    
+- RestaurantDetailViewController:
+    - (Create/POST) Add a restaurnt id to user's favorite restaurants list
+    firebase.addFavoriteRestaurant(theID: String)
+    
+- FriendsTableViewController:
+    - (Read/GET) Get friends profile pictures
+    user.getProfilePicture(email: String)
+    
+- RecommendationTableViewController:
+    - (Read/GET)Get selected friend's favorite restaurants to compare with current user
+    fried.getUserRestaurants(email: String)
+
+### API Endpoints
+#### Yelp Api
+
+- Base URL: https://api.yelp.com/v3/businesses/search
+
+| HTTP Verb | Endpoint | Description |
+|-----------|-----------|-----------|
+|GET|/term|Search term, for example "food" or "restaurants". The term may also be business names, such as "Starbucks".|
+|GET|/term="Restaurant"/categories=restaurants|Only get business that are restaurants. 
+
+- Base URL: https://api.yelp.com/v3/businesses/{id}
+    - Get business details of a specific business.
