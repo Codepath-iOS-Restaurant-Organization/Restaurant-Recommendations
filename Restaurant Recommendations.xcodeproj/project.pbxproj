@@ -15,9 +15,14 @@
 		DD2864632624B5E40049B1C5 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2864622624B5E40049B1C5 /* UserInformation.swift */; };
 		DD2864672624B6160049B1C5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2864662624B6160049B1C5 /* User.swift */; };
 		DD28646A2624B6260049B1C5 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2864692624B6260049B1C5 /* FirebaseHelper.swift */; };
+		DD3DD813262D2B3400661A7F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3DD812262D2B3400661A7F /* HomeViewController.swift */; };
+		DD3DD816262D2BBD00661A7F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3DD815262D2BBD00661A7F /* SearchViewController.swift */; };
+		DD3DD819262D2BFE00661A7F /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3DD818262D2BFE00661A7F /* RestaurantDetailViewController.swift */; };
+		DD3DD820262D2C6500661A7F /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3DD81F262D2C6500661A7F /* FriendsTableViewController.swift */; };
+		DD3DD823262D2CCE00661A7F /* RecommendationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3DD822262D2CCE00661A7F /* RecommendationTableViewController.swift */; };
 		DDA318D52623CA0000CC1A5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA318D42623CA0000CC1A5D /* AppDelegate.swift */; };
 		DDA318D72623CA0000CC1A5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA318D62623CA0000CC1A5D /* SceneDelegate.swift */; };
-		DDA318D92623CA0000CC1A5D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA318D82623CA0000CC1A5D /* ViewController.swift */; };
+		DDA318D92623CA0000CC1A5D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA318D82623CA0000CC1A5D /* LoginViewController.swift */; };
 		DDA318DC2623CA0000CC1A5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDA318DA2623CA0000CC1A5D /* Main.storyboard */; };
 		DDA318DE2623CA0000CC1A5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDA318DD2623CA0000CC1A5D /* Assets.xcassets */; };
 		DDA318E12623CA0000CC1A5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDA318DF2623CA0000CC1A5D /* LaunchScreen.storyboard */; };
@@ -34,10 +39,15 @@
 		DD2864622624B5E40049B1C5 /* UserInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		DD2864662624B6160049B1C5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DD2864692624B6260049B1C5 /* FirebaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
+		DD3DD812262D2B3400661A7F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DD3DD815262D2BBD00661A7F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		DD3DD818262D2BFE00661A7F /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
+		DD3DD81F262D2C6500661A7F /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
+		DD3DD822262D2CCE00661A7F /* RecommendationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationTableViewController.swift; sourceTree = "<group>"; };
 		DDA318D12623CA0000CC1A5D /* Restaurant Recommendations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Restaurant Recommendations.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA318D42623CA0000CC1A5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDA318D62623CA0000CC1A5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DDA318D82623CA0000CC1A5D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DDA318D82623CA0000CC1A5D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DDA318DB2623CA0000CC1A5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDA318DD2623CA0000CC1A5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDA318E02623CA0000CC1A5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -145,7 +155,12 @@
 		DDA318EA2623CA1100CC1A5D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DDA318D82623CA0000CC1A5D /* ViewController.swift */,
+				DDA318D82623CA0000CC1A5D /* LoginViewController.swift */,
+				DD3DD812262D2B3400661A7F /* HomeViewController.swift */,
+				DD3DD815262D2BBD00661A7F /* SearchViewController.swift */,
+				DD3DD818262D2BFE00661A7F /* RestaurantDetailViewController.swift */,
+				DD3DD81F262D2C6500661A7F /* FriendsTableViewController.swift */,
+				DD3DD822262D2CCE00661A7F /* RecommendationTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -276,13 +291,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD2864632624B5E40049B1C5 /* UserInformation.swift in Sources */,
+				DD3DD816262D2BBD00661A7F /* SearchViewController.swift in Sources */,
+				DD3DD820262D2C6500661A7F /* FriendsTableViewController.swift in Sources */,
 				DD2864592624B4830049B1C5 /* JsonParse.swift in Sources */,
-				DDA318D92623CA0000CC1A5D /* ViewController.swift in Sources */,
+				DDA318D92623CA0000CC1A5D /* LoginViewController.swift in Sources */,
 				DDA318D52623CA0000CC1A5D /* AppDelegate.swift in Sources */,
 				DD28646A2624B6260049B1C5 /* FirebaseHelper.swift in Sources */,
+				DD3DD813262D2B3400661A7F /* HomeViewController.swift in Sources */,
+				DD3DD823262D2CCE00661A7F /* RecommendationTableViewController.swift in Sources */,
 				DD2864672624B6160049B1C5 /* User.swift in Sources */,
 				DD2864552624B41F0049B1C5 /* RestaurantObject.swift in Sources */,
 				DD28645F2624B4FD0049B1C5 /* Search.swift in Sources */,
+				DD3DD819262D2BFE00661A7F /* RestaurantDetailViewController.swift in Sources */,
 				DDA318D72623CA0000CC1A5D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
