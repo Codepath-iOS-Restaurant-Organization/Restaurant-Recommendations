@@ -93,6 +93,18 @@ Restaurant recommendation app for friends, family, and couples who have a hard t
 
 
 ## Schema 
+
+### Models
+
+#### Users
+| Property | Type | Description |
+|----------|------|-------------|
+|email| String| Email of user|
+|friends|Array of Strings|emails of user's friends|
+|favoriteRestaurants| Array of Strings| id's of restaurants from the yelp api|
+|profilePicture| String| user's profile picture image url|
+
+
 ### Networking
 All network calls are broken down into three helper classes: FirebaseHelper, Search, & UserInformation. Just intialize class and call functions written ex:
 let firebase = FirebaseHelper()
