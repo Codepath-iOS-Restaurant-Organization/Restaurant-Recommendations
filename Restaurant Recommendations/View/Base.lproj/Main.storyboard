@@ -44,6 +44,9 @@
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Cs-hZ-EQj">
                                 <rect key="frame" x="100" y="476" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="onLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yWJ-fv-cPe"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -60,6 +63,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="tJO-K0-6mt"/>
                     <connections>
+                        <outlet property="emailTextField" destination="pYW-Qn-FPI" id="lEK-Ph-5qu"/>
+                        <outlet property="loginButton" destination="6Cs-hZ-EQj" id="d6z-eV-SV7"/>
+                        <outlet property="passwordTextField" destination="3s2-Ac-9w4" id="RSc-yD-Hfv"/>
                         <segue destination="UCL-Op-Wg3" kind="show" identifier="loginToHome" id="EvM-hL-HVG"/>
                     </connections>
                 </viewController>
