@@ -60,7 +60,7 @@
                                 <rect key="frame" x="100" y="473" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <action selector="onLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9fi-Y9-CzA"/>
+                                    <action selector="onLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EAw-P3-P4d"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -79,6 +79,7 @@
                     <navigationItem key="navigationItem" id="tJO-K0-6mt"/>
                     <connections>
                         <outlet property="emailTextField" destination="pYW-Qn-FPI" id="lEK-Ph-5qu"/>
+                        <outlet property="loginButton" destination="6Cs-hZ-EQj" id="QpX-24-uaC"/>
                         <outlet property="passwordTextField" destination="3s2-Ac-9w4" id="RSc-yD-Hfv"/>
                         <outlet property="signUpButton" destination="wpy-Ec-61e" id="gwO-qE-UTk"/>
                         <segue destination="UCL-Op-Wg3" kind="show" identifier="loginToHome" id="EvM-hL-HVG"/>
@@ -203,10 +204,10 @@
             </objects>
             <point key="canvasLocation" x="762" y="4190"/>
         </scene>
-        <!--Friends Table View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="5qc-ZT-QSg">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="KGE-g7-NVL" customClass="FriendsTableViewController" customModule="Restaurant_Recommendations" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="KGE-g7-NVL" customClass="HomeViewController" customModule="Restaurant_Recommendations" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T3V-jI-bI8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
