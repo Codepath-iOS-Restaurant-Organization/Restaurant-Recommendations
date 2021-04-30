@@ -176,3 +176,9 @@ func signUpUser(userEmail: String, userPassword: String){
 
 - Base URL: https://api.yelp.com/v3/businesses/{id}
     - Get business details of a specific business.
+
+## Build Progress
+
+### Login / Register
+![login](https://user-images.githubusercontent.com/19720373/116739827-27b73600-a9c2-11eb-8703-c3268206eb72.gif)
+
