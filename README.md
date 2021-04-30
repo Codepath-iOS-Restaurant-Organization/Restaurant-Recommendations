@@ -23,11 +23,11 @@ Restaurant recommendation app for friends, family, and couples who have a hard t
 
 **Required Must-have Stories**
 
-* User login
-* User register
+- [x] User login 
+- [x] User register
 * Search restaurants
 * Add restaurants to favorites
-* Add friends
+- [x] Add friends
 * See friend's favorited restaurants
 * Restaurant recomendtions based on both user's restaurant list.
 
