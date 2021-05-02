@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="J2w-yP-p1w">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cV5-sl-gZ6">
                                 <rect key="frame" x="40" y="294" width="334" height="139"/>
                                 <subviews>
@@ -42,7 +39,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3s2-Ac-9w4">
                                         <rect key="frame" x="0.0" y="105" width="334" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -64,7 +61,6 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="onLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EAw-P3-P4d"/>
-
                                 </connections>
                             </button>
                         </subviews>
@@ -91,18 +87,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-
             <point key="canvasLocation" x="66.666666666666671" y="-26.116071428571427"/>
-
         </scene>
         <!--Search View Controller-->
         <scene sceneID="0um-sG-i0X">
             <objects>
                 <viewController id="fzy-Dk-zkh" customClass="SearchViewController" customModule="Restaurant_Recommendations" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L4M-OD-hNC">
-
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="ySR-Ml-ZFO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -121,9 +113,7 @@
             <objects>
                 <tableViewController id="f5s-WL-hX5" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="okM-LD-ndu">
-
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -155,9 +145,7 @@
             <objects>
                 <viewController id="PZA-ta-9Qy" customClass="RestaurantDetailViewController" customModule="Restaurant_Recommendations" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d9n-TD-IY3">
-
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="PKP-X3-pvV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -173,9 +161,7 @@
             <objects>
                 <tableViewController id="uym-Uv-FxB" customClass="RecommendationTableViewController" customModule="Restaurant_Recommendations" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="H1V-er-xxg">
-
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -207,9 +193,7 @@
             <objects>
                 <viewController id="Tzu-WH-B4d" customClass="RestaurantDetailViewController" customModule="Restaurant_Recommendations" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Coz-BX-V2R">
-
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="RGQ-ZP-sS5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -225,9 +209,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="KGE-g7-NVL" customClass="HomeViewController" customModule="Restaurant_Recommendations" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T3V-jI-bI8">
-
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="NM0-35-4VH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -264,9 +246,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Ct4-X7-OQw">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-
                         <color key="barTintColor" red="0.058823529411764705" green="0.18903204800000001" blue="0.34079846740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
