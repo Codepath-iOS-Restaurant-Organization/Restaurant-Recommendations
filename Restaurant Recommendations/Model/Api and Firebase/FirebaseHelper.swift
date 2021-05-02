@@ -40,6 +40,7 @@ class FirebaseHelper {
         }
     }
     
+    
     func signInUser(userEmail: String, userPassword: String) {
         
         Auth.auth().signIn(withEmail: userEmail, password: userPassword) { (result, error) in
@@ -54,6 +55,7 @@ class FirebaseHelper {
             
         }
     }
+    
     
     func signOutUser () {
         
