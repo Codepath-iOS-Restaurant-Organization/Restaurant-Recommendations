@@ -23,11 +23,11 @@ Restaurant recommendation app for friends, family, and couples who have a hard t
 
 **Required Must-have Stories**
 
-* User login
-* User register
+- [x] User login 
+- [x] User register
 * Search restaurants
 * Add restaurants to favorites
-* Add friends
+- [x] Add friends
 * See friend's favorited restaurants
 * Restaurant recomendtions based on both user's restaurant list.
 
@@ -176,3 +176,17 @@ func signUpUser(userEmail: String, userPassword: String){
 
 - Base URL: https://api.yelp.com/v3/businesses/{id}
     - Get business details of a specific business.
+
+## Build Progress
+
+### Login / Register
+![login](https://user-images.githubusercontent.com/19720373/116739827-27b73600-a9c2-11eb-8703-c3268206eb72.gif)
+
+### Add Friends & Sign Out
+![add_Friend_Signout](https://user-images.githubusercontent.com/19720373/116739979-5a612e80-a9c2-11eb-9698-aedffaf95eac.gif)
+
+### Search Bar
+
+![searchBar](https://user-images.githubusercontent.com/19720373/116740007-651bc380-a9c2-11eb-92da-851f0326a9fb.gif)
+
+
