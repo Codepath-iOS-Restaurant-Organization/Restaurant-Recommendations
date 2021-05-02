@@ -8,6 +8,7 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+
     
     let firebase = FirebaseHelper();
     
@@ -18,11 +19,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        firebase.delegate = self
         // Do any additional setup after loading the view.
         firebase.delegate = self
     }
+
 
     
     @IBAction func onSignUp(_ sender: Any) {
