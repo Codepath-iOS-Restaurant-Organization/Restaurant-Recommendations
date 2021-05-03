@@ -67,6 +67,7 @@ extension LoginViewController: firebaseProtocols {
     }
 
     func signInSuccessful() {
+        UserDefaults.standard.set(true, forKey: "loginSuccess")
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "loginToHome", sender: self)
         }
