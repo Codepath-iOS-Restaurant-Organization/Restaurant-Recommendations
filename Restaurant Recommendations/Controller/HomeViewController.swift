@@ -7,13 +7,30 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     let firebase = FirebaseHelper()
     
     @IBAction func onAddFriend(_ sender: Any) {
         addFriendAlert()
     }
     
+    @IBAction func onLogout(_ sender: Any) {
+        logoutAlert()
+    }
+    
+    @IBOutlet weak var profileImageView: UIImageView!
+    
+    
+    @IBAction func onProfileImage(_ sender: Any) {
+        print("tapped")
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        picker.sourceType = .photoLibrary
+        present(picker, animated: true, completion: nil)
+    }
+    
+    //Code for addFriend button:
     func addFriendAlert(){
         let alert = UIAlertController(title: "Add Friend", message: "Please enter user's email", preferredStyle: .alert)
         alert.addTextField()
@@ -25,10 +42,8 @@ class HomeViewController: UIViewController {
         present(alert, animated: true)
 
     }
-    @IBAction func onLogout(_ sender: Any) {
-        logoutAlert()
-    }
     
+    //Code for logout button:
     func logoutAndLeave(){
         firebase.signOutUser()
         UserDefaults.standard.set(false, forKey: "loginSuccess")
@@ -45,6 +60,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         firebase.delegate = self
+        profileImageView.layer.masksToBounds = true
+           profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
