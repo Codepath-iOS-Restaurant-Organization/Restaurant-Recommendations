@@ -25,7 +25,7 @@ Restaurant recommendation app for friends, family, and couples who have a hard t
 
 - [x] User login 
 - [x] User register
-* Search restaurants
+- [x] Search restaurants
 * Add restaurants to favorites
 - [x] Add friends
 * See friend's favorited restaurants
