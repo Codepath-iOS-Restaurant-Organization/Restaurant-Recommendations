@@ -189,4 +189,15 @@ func signUpUser(userEmail: String, userPassword: String){
 
 ![searchBar](https://user-images.githubusercontent.com/19720373/116740007-651bc380-a9c2-11eb-92da-851f0326a9fb.gif)
 
+## Build Progress 2
+
+### Home Update: Choosing Profile Picture
+![newHomeUpdate](https://user-images.githubusercontent.com/19720373/117508781-243e2480-af57-11eb-98a7-428ebe204e4b.gif)
+
+### Search Update: Can Search For A Restaurant
+
+![giphy](https://user-images.githubusercontent.com/19720373/117508850-3a4be500-af57-11eb-9b5a-a36a019032e6.gif)
+
+
+
 
