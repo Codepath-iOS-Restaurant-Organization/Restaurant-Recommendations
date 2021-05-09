@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B355544126406DBF008D1B44 /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B355544026406DBF008D1B44 /* RestaurantCell.swift */; };
 		B64DACDF265298B1D7F5C146 /* Pods_Restaurant_Recommendations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 221CC578EAA9B0EC4FB7DEED /* Pods_Restaurant_Recommendations.framework */; };
 		DD28643E2624B0B60049B1C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD28643D2624B0B60049B1C5 /* GoogleService-Info.plist */; };
 		DD2864552624B41F0049B1C5 /* RestaurantObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2864542624B41F0049B1C5 /* RestaurantObject.swift */; };
@@ -32,6 +33,7 @@
 		1770F5A38596B641BCB5C871 /* Pods-Restaurant Recommendations.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Restaurant Recommendations.release.xcconfig"; path = "Target Support Files/Pods-Restaurant Recommendations/Pods-Restaurant Recommendations.release.xcconfig"; sourceTree = "<group>"; };
 		221CC578EAA9B0EC4FB7DEED /* Pods_Restaurant_Recommendations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Restaurant_Recommendations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BEDAFE3747856C4FBA51EE6 /* Pods-Restaurant Recommendations.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Restaurant Recommendations.debug.xcconfig"; path = "Target Support Files/Pods-Restaurant Recommendations/Pods-Restaurant Recommendations.debug.xcconfig"; sourceTree = "<group>"; };
+		B355544026406DBF008D1B44 /* RestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCell.swift; sourceTree = "<group>"; };
 		DD28643D2624B0B60049B1C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD2864542624B41F0049B1C5 /* RestaurantObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantObject.swift; sourceTree = "<group>"; };
 		DD2864582624B4830049B1C5 /* JsonParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParse.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				DD3DD818262D2BFE00661A7F /* RestaurantDetailViewController.swift */,
 				DD3DD81F262D2C6500661A7F /* FriendsTableViewController.swift */,
 				DD3DD822262D2CCE00661A7F /* RecommendationTableViewController.swift */,
+				B355544026406DBF008D1B44 /* RestaurantCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B355544126406DBF008D1B44 /* RestaurantCell.swift in Sources */,
 				DD2864632624B5E40049B1C5 /* UserInformation.swift in Sources */,
 				DD3DD816262D2BBD00661A7F /* SearchViewController.swift in Sources */,
 				DD3DD820262D2C6500661A7F /* FriendsTableViewController.swift in Sources */,
