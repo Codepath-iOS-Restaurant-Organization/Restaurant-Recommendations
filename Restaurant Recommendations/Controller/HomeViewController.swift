@@ -7,13 +7,39 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     let firebase = FirebaseHelper()
     
     @IBAction func onAddFriend(_ sender: Any) {
         addFriendAlert()
     }
     
+    @IBAction func onLogout(_ sender: Any) {
+        logoutAlert()
+    }
+    
+    @IBOutlet weak var profileImageView: UIImageView!
+    
+    
+    @IBAction func onProfileImage(_ sender: Any) {
+        print("tapped")
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        picker.sourceType = .photoLibrary
+        present(picker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.editedImage] as!UIImage
+        let size = CGSize(width: 160, height: 160)
+        let scaledImage = image.scaleImage(toSize: size)
+        profileImageView.image = scaledImage
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    //Code for addFriend button:
     func addFriendAlert(){
         let alert = UIAlertController(title: "Add Friend", message: "Please enter user's email", preferredStyle: .alert)
         alert.addTextField()
@@ -25,10 +51,8 @@ class HomeViewController: UIViewController {
         present(alert, animated: true)
 
     }
-    @IBAction func onLogout(_ sender: Any) {
-        logoutAlert()
-    }
     
+    //Code for logout button:
     func logoutAndLeave(){
         firebase.signOutUser()
         UserDefaults.standard.set(false, forKey: "loginSuccess")
@@ -45,6 +69,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         firebase.delegate = self
+        profileImageView.layer.masksToBounds = true
+           profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -79,5 +105,26 @@ extension HomeViewController: firebaseProtocols{
     
     func profilePictureUploaded() {
 
+    }
+}
+
+
+//code snippet came from: stackoverflow.com/questions/31966885/resize-uiimage-to-200x200pt-px
+extension UIImage {
+    func scaleImage(toSize newSize: CGSize) -> UIImage? {
+        var newImage: UIImage?
+        let newRect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height).integral
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
+        if let context = UIGraphicsGetCurrentContext(), let cgImage = self.cgImage {
+            context.interpolationQuality = .high
+            let flipVertical = CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: newSize.height)
+            context.concatenate(flipVertical)
+            context.draw(cgImage, in: newRect)
+            if let img = context.makeImage() {
+                newImage = UIImage(cgImage: img)
+            }
+            UIGraphicsEndImageContext()
+        }
+        return newImage
     }
 }
