@@ -9,8 +9,14 @@ import UIKit
 
 class RecommendationTableViewController: UITableViewController {
 
+    var friendChosen = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print(friendChosen)
     }
 
     // MARK: - Table view data source

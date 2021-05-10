@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fzy-Dk-zkh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="J2w-yP-p1w">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -201,22 +199,52 @@
             </objects>
             <point key="canvasLocation" x="-1081.1594202898552" y="2441.5178571428569"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Friends Table View Controller-->
         <scene sceneID="dX4-wd-HUk">
             <objects>
-                <tableViewController id="f5s-WL-hX5" sceneMemberID="viewController">
+                <tableViewController id="f5s-WL-hX5" customClass="FriendsTableViewController" customModule="Restaurant_Recommendations" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="okM-LD-ndu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="L26-j3-Udj">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="110" id="L26-j3-Udj" customClass="FriendTableViewCell" customModule="Restaurant_Recommendations" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L26-j3-Udj" id="hYA-ZA-hoe">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="O7U-Nm-bFx">
+                                            <rect key="frame" x="10" y="10" width="394" height="90"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JZ9-GV-Fn5">
+                                                    <rect key="frame" x="0.0" y="1.5" width="90" height="87.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="o3v-lD-Vdl"/>
+                                                        <constraint firstAttribute="height" constant="90" id="wOE-uu-0rA"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rE-Mp-rjC">
+                                                    <rect key="frame" x="106" y="35" width="288" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="O7U-Nm-bFx" secondAttribute="trailing" constant="10" id="5Du-gh-2iQ"/>
+                                        <constraint firstItem="O7U-Nm-bFx" firstAttribute="top" secondItem="hYA-ZA-hoe" secondAttribute="top" constant="10" id="ANa-tK-fjF"/>
+                                        <constraint firstAttribute="bottom" secondItem="O7U-Nm-bFx" secondAttribute="bottom" constant="10" id="Fuk-vM-NHm"/>
+                                        <constraint firstItem="O7U-Nm-bFx" firstAttribute="leading" secondItem="hYA-ZA-hoe" secondAttribute="leading" constant="10" id="qBZ-5x-Bwd"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="friendEmail" destination="4rE-Mp-rjC" id="UBt-c6-hEA"/>
+                                    <outlet property="friendImage" destination="JZ9-GV-Fn5" id="Fwt-WF-PwP"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -226,12 +254,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="EHb-vF-VJk"/>
                     <connections>
-                        <segue destination="uym-Uv-FxB" kind="show" id="31v-oV-mK2"/>
+                        <segue destination="uym-Uv-FxB" kind="show" identifier="friendsToRec" id="31v-oV-mK2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="frg-h9-InG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="786" y="2468"/>
+            <point key="canvasLocation" x="785.50724637681162" y="2467.6339285714284"/>
         </scene>
         <!--Restaurant Detail View Controller-->
         <scene sceneID="FdY-qO-uHo">
@@ -252,7 +280,7 @@
         <!--Recommendation Table View Controller-->
         <scene sceneID="8mS-zu-UEq">
             <objects>
-                <tableViewController id="uym-Uv-FxB" customClass="RecommendationTableViewController" customModule="Restaurant_Recommendations" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" id="uym-Uv-FxB" customClass="RecommendationTableViewController" customModule="Restaurant_Recommendations" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="H1V-er-xxg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -386,6 +414,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="person" catalog="system" width="128" height="117"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
