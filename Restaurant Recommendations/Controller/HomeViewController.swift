@@ -6,10 +6,10 @@
 //
 
 import UIKit
-
+import Firebase
 class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     let firebase = FirebaseHelper()
-    
+    var currentUser: UserInformation?
     @IBAction func onAddFriend(_ sender: Any) {
         addFriendAlert()
     }
@@ -35,6 +35,11 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let size = CGSize(width: 160, height: 160)
         let scaledImage = image.scaleImage(toSize: size)
         profileImageView.image = scaledImage
+        
+        guard let unwrapped = scaledImage else {return}
+        if let email = Auth.auth().currentUser?.email{
+            firebase.uploadProfilePicture(email: email, image: unwrapped)
+        }
         
         dismiss(animated: true, completion: nil)
     }
@@ -65,12 +70,42 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         alert.addAction(UIAlertAction(title: "Log Out", style: .default, handler: { [self]action in logoutAndLeave()}))
         present(alert, animated: true)
     }
+    func setImageViewsImageFromURL (theImageURL: String){
+        
+        if let url = URL(string: theImageURL){
+            
+            let session = URLSession(configuration: .default)
+            
+            let task = session.dataTask(with: url) { (data, response, error) in
+                
+                if let e = error {
+                    print("Could not convert url to a image: \(e.localizedDescription)")
+                }
+                else {
+                    
+                    if let imageData = data {
+                        let tempImage = UIImage(data: imageData)
+                        
+                        if let unwrappedImage = tempImage {
+                            DispatchQueue.main.async {
+                                 self.profileImageView.image = unwrappedImage
+                            }
+                        }
+                    }
+                }
+            }
+            task.resume()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         firebase.delegate = self
         profileImageView.layer.masksToBounds = true
-           profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
+        profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
+        print(currentUser?.userReturned.)
+        //setImageViewsImageFromURL(theImageURL: (currentUser?.userReturned.profilePicture)!)
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
