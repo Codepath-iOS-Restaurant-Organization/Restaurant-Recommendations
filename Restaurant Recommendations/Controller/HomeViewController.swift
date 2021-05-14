@@ -8,10 +8,18 @@
 import UIKit
 import Firebase
 class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     let firebase = FirebaseHelper()
-    var currentUser: UserInformation?
+    var currentUser = UserInformation()
+    
     @IBAction func onAddFriend(_ sender: Any) {
         addFriendAlert()
+    }
+    
+    @IBOutlet weak var friendsLabel: UILabel!
+    
+    @IBAction func onFriendsCount(_ sender: Any) {
+        print("tapped")
     }
     
     @IBAction func onLogout(_ sender: Any) {
@@ -22,7 +30,6 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     
     @IBAction func onProfileImage(_ sender: Any) {
-        print("tapped")
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
@@ -40,6 +47,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         if let email = Auth.auth().currentUser?.email{
             firebase.uploadProfilePicture(email: email, image: unwrapped)
         }
+        
         
         dismiss(animated: true, completion: nil)
     }
@@ -70,6 +78,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         alert.addAction(UIAlertAction(title: "Log Out", style: .default, handler: { [self]action in logoutAndLeave()}))
         present(alert, animated: true)
     }
+    
     func setImageViewsImageFromURL (theImageURL: String){
         
         if let url = URL(string: theImageURL){
@@ -103,12 +112,19 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         firebase.delegate = self
         profileImageView.layer.masksToBounds = true
         profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
-        print(currentUser?.userReturned.)
+        //print(currentUser?.userReturned.)
         //setImageViewsImageFromURL(theImageURL: (currentUser?.userReturned.profilePicture)!)
-        
+        //friendsLabel.text = "hi";
+        if let email = Auth.auth().currentUser?.email{
+            currentUser.getTotalUserInfo(email: email)}
+        print(currentUser.userReturned.friends.count)
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+            
+        
     }
 }
 
