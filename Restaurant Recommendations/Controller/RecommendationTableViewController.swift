@@ -18,6 +18,8 @@ class RecommendationTableViewController: UITableViewController
     //similar/different array
     var similarArray = [Restaurant]()
     var differentArray = [Restaurant]()
+    var globalCounter = 0
+    var globalIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -168,9 +170,16 @@ class RecommendationTableViewController: UITableViewController
                     differentArray.append(search.favoriteRestaurants[0])
                 }
                 search.favoriteRestaurants.removeAll()
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+                
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
+            if (globalIndex != globalCounter){
+                search.getSingleRestaurant(restaurantID:friend.userReturned.favoriteRestaurants[globalIndex])
+            }
+            
+            
             
         }
     }
@@ -185,10 +194,10 @@ extension RecommendationTableViewController: userProtocol
                 
         if currentUser.userReturned.favoriteRestaurants.isEmpty == false && friend.userReturned.favoriteRestaurants.isEmpty == false
         {
-                for id in friend.userReturned.favoriteRestaurants
-                {
-                    search.getSingleRestaurant(restaurantID: id)
-                }
+            globalCounter = friend.userReturned.favoriteRestaurants.count
+            
+            search.getSingleRestaurant(restaurantID: friend.userReturned.favoriteRestaurants[globalIndex])
+            
         }
     }
 
@@ -210,6 +219,7 @@ extension RecommendationTableViewController : searchProtocol
     }
     
     func singleSearchDone() {
+        globalIndex += 1
         checkSimilar(restaurantID: search.favoriteRestaurants[0].restaurantID)
     }
 }
