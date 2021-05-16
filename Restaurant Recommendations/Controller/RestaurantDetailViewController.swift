@@ -86,9 +86,6 @@ class RestaurantDetailViewController: UIViewController {
                     
                     //Can also call the error delegate here
                     
-                    
-                    
-                    
                 }
                 else {
                     
@@ -100,17 +97,6 @@ class RestaurantDetailViewController: UIViewController {
                             
                             DispatchQueue.main.async {
                                 self.restaurantImageView.image = unwrappedImage
-                                
-
-                                /*
-                                 Inside here set the imageView to the unwrapped image from the url
-                                 Something like:
-                                 self.profilePictureImageView.image = unwrappedImage
-                                 
-                                 
-                                 */
-                                
-                                
                                 
                             }
                             

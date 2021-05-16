@@ -21,6 +21,8 @@ class RecommendationTableViewController: UITableViewController
     var globalCounter = 0
     var globalIndex = 0
     
+    var chosenRestaurant: Restaurant?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         currentUser.userDelegate = self
@@ -156,6 +158,31 @@ class RecommendationTableViewController: UITableViewController
             return "Other"
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! RestaurantDetailViewController
+        destinationVC.chosenRestaurant = chosenRestaurant
+    }
+    
+    
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        if (indexPath.section == 0){
+            chosenRestaurant = similarArray[indexPath.row]
+        }
+        else {
+            chosenRestaurant = differentArray[indexPath.row]
+        }
+        
+        performSegue(withIdentifier: "recToDetail", sender: self)
+        
+    }
+    
+
+    
     
     func checkSimilar(restaurantID:String)
     {
