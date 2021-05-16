@@ -27,6 +27,42 @@ class RestaurantDetailViewController: UIViewController {
     var chosenRestaurant: Restaurant?
     let fire = FirebaseHelper()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        restaurantNameLabel.text = chosenRestaurant?.restaurantName
+        typeOfFoodlabel.text = chosenRestaurant?.restaurantAlias
+        dollarSignLabel.text = "$"
+
+        // Formatted phone-number string using a Swift extension.
+        phoneNumberLabel.text = chosenRestaurant?.restaurantPhoneNumber.toPhoneNumber()
+        
+        switch chosenRestaurant?.restaurantRating {
+        case 0.0:
+            starImageView.image = UIImage(named: "extra_large_0")
+        case 1.0:
+            starImageView.image = UIImage(named: "extra_large_1")
+        case 1.5:
+            starImageView.image = UIImage(named: "extra_large_1_half")
+        case 2.0:
+            starImageView.image = UIImage(named: "extra_large_2")
+        case 2.5:
+            starImageView.image = UIImage(named: "extra_large_2_half")
+        case 3.0:
+            starImageView.image = UIImage(named: "extra_large_3")
+        case 3.5:
+            starImageView.image = UIImage(named: "extra_large_3_half")
+        case 4.0:
+            starImageView.image = UIImage(named: "extra_large_4")
+        case 4.5:
+            starImageView.image = UIImage(named: "extra_large_4_half")
+        case 5.0:
+            starImageView.image = UIImage(named: "extra_large_5")
+        default:
+            starImageView.image = UIImage(named: "extra_large_0")
+        }
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,3 +102,12 @@ extension RestaurantDetailViewController: firebaseProtocols {
     func profilePictureUploaded() {}
     
 }
+
+// Adjusted code snippet is from stackoverflow.com/questions/14974331/string-to-phone-number-format-on-ios
+extension String {
+    public func toPhoneNumber() -> String {
+        return self.replacingOccurrences(of: "(\\d{1})(\\d{3})(\\d{3})(\\d+)", with: "$1 ($2) $3-$4", options: .regularExpression, range: nil)
+    }
+}
+
+

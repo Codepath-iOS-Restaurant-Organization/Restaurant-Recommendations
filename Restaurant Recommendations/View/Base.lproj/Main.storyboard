@@ -192,7 +192,7 @@
                     <connections>
                         <outlet property="searchBar" destination="obY-f4-R8J" id="0iW-Pa-JZj"/>
                         <outlet property="tableView" destination="exF-Dy-o1G" id="FJh-zK-NRc"/>
-                        <segue destination="PZA-ta-9Qy" kind="show" id="Xan-v5-wV5"/>
+                        <segue destination="PZA-ta-9Qy" kind="show" identifier="toDetailsSegue" id="Xan-v5-wV5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oDb-l4-7K4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

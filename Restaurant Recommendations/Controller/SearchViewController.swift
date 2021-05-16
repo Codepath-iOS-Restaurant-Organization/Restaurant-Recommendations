@@ -32,8 +32,18 @@ class SearchViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("Loading up the details screen...")
+        
+        if segue.identifier == "toDetailsSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destVC = segue.destination as! RestaurantDetailViewController
+                destVC.chosenRestaurant = search.allReturnedSearchBusinesses[indexPath.row]
+            }
+        }
+    }
 }
-
 
 
 
@@ -67,7 +77,7 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell") as! RestaurantCell
         
         cell.restaurantNameLabel.text = search.allReturnedSearchBusinesses[indexPath.row].restaurantName
-        cell.phoneNumberLabel.text = search.allReturnedSearchBusinesses[indexPath.row].restaurantPhoneNumber
+        cell.phoneNumberLabel.text = search.allReturnedSearchBusinesses[indexPath.row].restaurantPhoneNumber.toPhoneNumber()
         cell.categoryLabel.text = search.allReturnedSearchBusinesses[indexPath.row].restaurantAlias
         cell.numberReviewsLabel.text = String(search.allReturnedSearchBusinesses[indexPath.row].restaurantReview_count)
         
@@ -99,6 +109,11 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
             
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            performSegue(withIdentifier: "toDetailsSegue", sender: self)
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
 }
 
 
@@ -147,4 +162,5 @@ extension SearchViewController : searchProtocol {
         print("Single search done.")
     }
 }
+
 
