@@ -32,7 +32,6 @@ class Search {
     var favoriteRestaurants = [Restaurant]()
     
 
-    
     //MARK:: Methods You Call
     func getSingleRestaurant(restaurantID: String) {
         
