@@ -436,9 +436,22 @@
                                     <outletCollection property="gestureRecognizers" destination="dGS-4G-N5s" appends="YES" id="NTR-4U-Q3i"/>
                                 </connections>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVR-9N-PJs">
+                                <rect key="frame" x="150" y="702" width="114" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <segue destination="fzy-Dk-zkh" kind="show" id="6xY-5J-ERC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NM0-35-4VH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="NM0-35-4VH" firstAttribute="bottom" secondItem="GVR-9N-PJs" secondAttribute="bottom" constant="30" id="qlJ-CY-K5r"/>
+                            <constraint firstItem="NM0-35-4VH" firstAttribute="trailing" secondItem="GVR-9N-PJs" secondAttribute="trailing" constant="150" id="rul-eW-fjq"/>
+                            <constraint firstItem="GVR-9N-PJs" firstAttribute="leading" secondItem="NM0-35-4VH" secondAttribute="leading" constant="150" id="zlY-iE-FWE"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="K45-Yr-LCs">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="2t0-Dh-5j8">
@@ -456,7 +469,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="profileImageView" destination="OzN-vA-Ecs" id="6yf-Fy-R1U"/>
-                        <segue destination="fzy-Dk-zkh" kind="show" identifier="homeToSearch" id="j4v-fs-A9T"/>
                         <segue destination="f5s-WL-hX5" kind="show" id="F8K-Rh-XQr"/>
                     </connections>
                 </viewController>
