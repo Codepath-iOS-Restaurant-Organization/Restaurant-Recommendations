@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="J2w-yP-p1w">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fzy-Dk-zkh">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -121,19 +121,23 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RAf-7b-XSV">
-                                                            <rect key="frame" x="0.0" y="24.5" width="264" height="100"/>
+                                                            <rect key="frame" x="0.0" y="24.5" width="259" height="100"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RFe-QH-yxl">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="105" height="100"/>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RFe-QH-yxl">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="100" id="Gm5-Av-3Uj"/>
+                                                                        <constraint firstAttribute="height" constant="100" id="IFE-oL-FdM"/>
+                                                                    </constraints>
                                                                 </imageView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yZ6-E6-pIj">
-                                                                    <rect key="frame" x="113" y="0.0" width="151" height="100"/>
+                                                                    <rect key="frame" x="108" y="0.0" width="151" height="100"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gHA-vx-pcD">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="139" height="50"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="139" height="43"/>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# of reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyt-W1-3UR">
-                                                                            <rect key="frame" x="0.0" y="58" width="92" height="13.5"/>
+                                                                            <rect key="frame" x="0.0" y="51" width="92" height="20.5"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -370,6 +374,7 @@
                     <connections>
                         <outlet property="dollarSignLabel" destination="e8v-Bz-v39" id="495-cF-KVF"/>
                         <outlet property="phoneNumberLabel" destination="ASX-y5-f9n" id="47I-RO-Zsb"/>
+                        <outlet property="restaurantImageView" destination="Zbm-Mv-QH9" id="nt6-H5-cvB"/>
                         <outlet property="restaurantNameLabel" destination="X9V-dB-y8k" id="JaJ-so-VnZ"/>
                         <outlet property="starImageView" destination="auj-E1-y2S" id="mIJ-mf-bad"/>
                         <outlet property="stateZipCodeLabel" destination="0hw-92-i0A" id="aEH-uw-hjI"/>

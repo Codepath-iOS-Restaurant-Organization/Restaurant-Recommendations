@@ -80,6 +80,11 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
         cell.phoneNumberLabel.text = search.allReturnedSearchBusinesses[indexPath.row].restaurantPhoneNumber.toPhoneNumber()
         cell.categoryLabel.text = search.allReturnedSearchBusinesses[indexPath.row].restaurantAlias
         cell.numberReviewsLabel.text = String(search.allReturnedSearchBusinesses[indexPath.row].restaurantReview_count)
+        cell.setImageView(theImageURL: search.allReturnedSearchBusinesses[indexPath.row].restaurantImage_url)
+
+
+        
+        
         
         
         switch search.allReturnedSearchBusinesses[indexPath.row].restaurantRating {
@@ -113,8 +118,10 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             performSegue(withIdentifier: "toDetailsSegue", sender: self)
             tableView.deselectRow(at: indexPath, animated: true)
-        }
+     }
 }
+
+
 
 
 

@@ -22,6 +22,7 @@ class RestaurantDetailViewController: UIViewController {
     @IBOutlet weak var streetCityLabel: UILabel!
     @IBOutlet weak var stateZipCodeLabel: UILabel!
     
+    @IBOutlet weak var restaurantImageView: UIImageView!
     
     
     var chosenRestaurant: Restaurant?
@@ -35,6 +36,9 @@ class RestaurantDetailViewController: UIViewController {
 
         // Formatted phone-number string using a Swift extension.
         phoneNumberLabel.text = chosenRestaurant?.restaurantPhoneNumber.toPhoneNumber()
+    
+        
+        
         
         switch chosenRestaurant?.restaurantRating {
         case 0.0:
@@ -59,6 +63,62 @@ class RestaurantDetailViewController: UIViewController {
             starImageView.image = UIImage(named: "extra_large_5")
         default:
             starImageView.image = UIImage(named: "extra_large_0")
+        }
+        
+        if let chosen = chosenRestaurant {
+            setImageView(theImageURL: chosen.restaurantImage_url)
+            
+        }
+        
+    }
+    
+    func setImageView (theImageURL: String){
+        
+        if let url = URL(string: theImageURL){
+            
+            let session = URLSession(configuration: .default)
+            
+            let task = session.dataTask(with: url) { (data, response, error) in
+                
+                
+                if let e = error {
+                    print("Could not convert url to a image: \(e.localizedDescription)")
+                    
+                    //Can also call the error delegate here
+                    
+                    
+                    
+                    
+                }
+                else {
+                    
+                    if let imageData = data {
+                        let tempImage = UIImage(data: imageData)
+                        
+                        if let unwrappedImage = tempImage {
+                            
+                            
+                            DispatchQueue.main.async {
+                                self.restaurantImageView.image = unwrappedImage
+                                
+
+                                /*
+                                 Inside here set the imageView to the unwrapped image from the url
+                                 Something like:
+                                 self.profilePictureImageView.image = unwrappedImage
+                                 
+                                 
+                                 */
+                                
+                                
+                                
+                            }
+                            
+                        }
+                    }
+                }
+            }
+            task.resume()
         }
         
     }
