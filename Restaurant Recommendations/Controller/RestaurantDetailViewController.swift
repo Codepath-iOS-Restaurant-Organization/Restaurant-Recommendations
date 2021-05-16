@@ -69,7 +69,7 @@ class RestaurantDetailViewController: UIViewController {
             setImageView(theImageURL: chosen.restaurantImage_url)
             
         }
-        
+
     }
     
     func setImageView (theImageURL: String){
