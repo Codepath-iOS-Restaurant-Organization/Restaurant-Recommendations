@@ -57,10 +57,6 @@ class FriendTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        friendImage.image = nil
+        friendImage.image = UIImage(systemName: "person")
     }
-    
-    
-    
-
 }

@@ -26,7 +26,7 @@ Restaurant recommendation app for friends, family, and couples who have a hard t
 - [x] User login 
 - [x] User register
 - [x] Search restaurants
-* Add restaurants to favorites
+- [x] Add restaurants to favorites
 - [x] Add friends
 * See friend's favorited restaurants
 * Restaurant recomendtions based on both user's restaurant list.
@@ -197,6 +197,20 @@ func signUpUser(userEmail: String, userPassword: String){
 ### Search Update: Can Search For A Restaurant
 
 ![giphy](https://user-images.githubusercontent.com/19720373/117508850-3a4be500-af57-11eb-9b5a-a36a019032e6.gif)
+
+## Build Progress 3
+
+### Home Update: Show Profile Image And Total Amount of Friends
+![homeView](https://user-images.githubusercontent.com/19720373/118346385-fb92cd80-b508-11eb-983e-480d488c181b.gif)
+
+### Friend Update: Show User's Friends
+
+![friends](https://user-images.githubusercontent.com/19720373/118346395-0d747080-b509-11eb-9be9-8b0386bdc40c.gif)
+
+
+### Detail Update: Show Details of Restaurant
+
+![detail](https://user-images.githubusercontent.com/19720373/118346414-22e99a80-b509-11eb-800d-c3c73bb09ce6.gif)
 
 
 
