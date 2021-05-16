@@ -6,12 +6,45 @@
 //
 
 import UIKit
-
+import Firebase
 class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     let firebase = FirebaseHelper()
+    var currentUser = UserInformation()
+    var friendsCounter = 0
+    var tempURL = String()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        firebase.delegate = self
+        currentUser.userDelegate = self
+        
+        profileImageView.layer.masksToBounds = true
+        profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
+
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+  
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let email = Auth.auth().currentUser?.email{
+            currentUser.getTotalUserInfo(email: email)
+        }
+    }
     
     @IBAction func onAddFriend(_ sender: Any) {
         addFriendAlert()
+    }
+    
+    @IBOutlet weak var friendsLabel: UILabel!
+    
+    @IBAction func onFriendsCount(_ sender: Any) {
+        print("tapped")
     }
     
     @IBAction func onLogout(_ sender: Any) {
@@ -22,7 +55,6 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     
     @IBAction func onProfileImage(_ sender: Any) {
-        print("tapped")
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
@@ -35,6 +67,12 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let size = CGSize(width: 160, height: 160)
         let scaledImage = image.scaleImage(toSize: size)
         profileImageView.image = scaledImage
+        
+        guard let unwrapped = scaledImage else {return}
+        if let email = Auth.auth().currentUser?.email{
+            firebase.uploadProfilePicture(email: email, image: unwrapped)
+        }
+        
         
         dismiss(animated: true, completion: nil)
     }
@@ -66,15 +104,36 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         present(alert, animated: true)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        firebase.delegate = self
-        profileImageView.layer.masksToBounds = true
-           profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
+    func setImageViewsImageFromURL (theImageURL: String){
+        print("hi")
+        if let url = URL(string: theImageURL){
+            
+            let session = URLSession(configuration: .default)
+            
+            let task = session.dataTask(with: url) { (data, response, error) in
+                
+                if let e = error {
+                    print("Could not convert url to a image: \(e.localizedDescription)")
+                }
+                else {
+                    
+                    if let imageData = data {
+                        let tempImage = UIImage(data: imageData)
+                        
+                        if let unwrappedImage = tempImage {
+                            DispatchQueue.main.async {
+                                self.profileImageView.image = unwrappedImage
+                             
+                            }
+                        }
+                    }
+                }
+            }
+            task.resume()
+        }
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
+    
+    
 }
 
 extension HomeViewController: firebaseProtocols{
@@ -126,5 +185,26 @@ extension UIImage {
             UIGraphicsEndImageContext()
         }
         return newImage
+    }
+}
+extension HomeViewController: userProtocol {
+
+    func gotFriends() {
+        friendsCounter = currentUser.userReturned.friends.count
+        friendsLabel.text = String(friendsCounter) + " friends"
+    }
+    
+    func gotRestaurants() {
+        
+    }
+    
+    func gotError(error: Error) {
+        
+    }
+    
+    //add the image url to array that holds all profile images urls
+    func gotUserProfileImage() {
+        tempURL = currentUser.userReturned.profilePicture
+        setImageViewsImageFromURL(theImageURL: tempURL)
     }
 }
