@@ -11,6 +11,31 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     let firebase = FirebaseHelper()
     var currentUser = UserInformation()
+    var friendsCounter = 0
+    var tempURL = String()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        firebase.delegate = self
+        currentUser.userDelegate = self
+        
+        profileImageView.layer.masksToBounds = true
+        profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
+
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+  
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let email = Auth.auth().currentUser?.email{
+            currentUser.getTotalUserInfo(email: email)
+        }
+    }
     
     @IBAction func onAddFriend(_ sender: Any) {
         addFriendAlert()
@@ -80,7 +105,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     func setImageViewsImageFromURL (theImageURL: String){
-        
+        print("hi")
         if let url = URL(string: theImageURL){
             
             let session = URLSession(configuration: .default)
@@ -97,7 +122,8 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                         
                         if let unwrappedImage = tempImage {
                             DispatchQueue.main.async {
-                                 self.profileImageView.image = unwrappedImage
+                                self.profileImageView.image = unwrappedImage
+                             
                             }
                         }
                     }
@@ -107,25 +133,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        firebase.delegate = self
-        profileImageView.layer.masksToBounds = true
-        profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
-        //print(currentUser?.userReturned.)
-        //setImageViewsImageFromURL(theImageURL: (currentUser?.userReturned.profilePicture)!)
-        //friendsLabel.text = "hi";
-        if let email = Auth.auth().currentUser?.email{
-            currentUser.getTotalUserInfo(email: email)}
-        print(currentUser.userReturned.friends.count)
-    }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-            
-        
-    }
 }
 
 extension HomeViewController: firebaseProtocols{
@@ -177,5 +185,26 @@ extension UIImage {
             UIGraphicsEndImageContext()
         }
         return newImage
+    }
+}
+extension HomeViewController: userProtocol {
+
+    func gotFriends() {
+        friendsCounter = currentUser.userReturned.friends.count
+        friendsLabel.text = String(friendsCounter) + " friends"
+    }
+    
+    func gotRestaurants() {
+        
+    }
+    
+    func gotError(error: Error) {
+        
+    }
+    
+    //add the image url to array that holds all profile images urls
+    func gotUserProfileImage() {
+        tempURL = currentUser.userReturned.profilePicture
+        setImageViewsImageFromURL(theImageURL: tempURL)
     }
 }
