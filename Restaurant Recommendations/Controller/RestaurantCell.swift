@@ -82,4 +82,11 @@ class RestaurantCell: UITableViewCell {
         }
         
     }
+    
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        backgroundColor = .white
+    }
+    
 }

@@ -11,8 +11,8 @@ import Firebase
 class RecommendationTableViewController: UITableViewController
 {
     var friendChosen = ""
-    var currentUser: UserInformation?
-    var friend: UserInformation?
+    var currentUser = UserInformation()
+    var friend = UserInformation()
     var search = Search()
     
     //similar/different array
@@ -21,19 +21,18 @@ class RecommendationTableViewController: UITableViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentUser?.userDelegate = self
-        friend?.userDelegate = self
+        currentUser.userDelegate = self
+        friend.userDelegate = self
         search.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(friendChosen)
                 
         if let current = Auth.auth().currentUser?.email
         {
-            currentUser?.getUserRestaurants(email: current)
-            friend?.getUserRestaurants(email: friendChosen)
+            currentUser.getUserRestaurants(email: current)
+            friend.getUserRestaurants(email: friendChosen)
         }
     }
 
@@ -62,19 +61,87 @@ class RecommendationTableViewController: UITableViewController
     //color recommendated cell green
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        _ = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell") as! RestaurantCell
+         let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell") as! RestaurantCell
         
-        let dummyCell = UITableViewCell()
 
         if (indexPath.section == 0)
         {
-            dummyCell.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+            cell.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+            
+            cell.restaurantNameLabel.text = similarArray[indexPath.row].restaurantName
+            cell.phoneNumberLabel.text = similarArray[indexPath.row].restaurantPhoneNumber.toPhoneNumber()
+            cell.categoryLabel.text = similarArray[indexPath.row].restaurantAlias
+            cell.numberReviewsLabel.text = String(similarArray[indexPath.row].restaurantReview_count)
+            cell.setImageView(theImageURL: similarArray[indexPath.row].restaurantImage_url)
+
+            switch similarArray[indexPath.row].restaurantRating {
+            case 0.0:
+                cell.restaurantRatingImage.image = UIImage(named: "extra_large_0")
+            case 1.0:
+                cell.restaurantRatingImage.image = UIImage(named: "extra_large_1")
+            case 1.5:
+                cell.restaurantRatingImage.image = UIImage(named: "extra_large_1_half")
+            case 2.0:
+                cell.restaurantRatingImage.image = UIImage(named: "extra_large_2")
+            case 2.5:
+                cell.restaurantRatingImage.image = UIImage(named: "extra_large_2_half")
+            case 3.0:
+                cell.restaurantRatingImage.image = UIImage(named: "extra_large_3")
+            case 3.5:
+                cell.restaurantRatingImage.image = UIImage(named: "extra_large_3_half")
+            case 4.0:
+                cell.restaurantRatingImage.image = UIImage(named: "extra_large_4")
+            case 4.5:
+                cell.restaurantRatingImage.image = UIImage(named: "extra_large_4_half")
+            case 5.0:
+                cell.restaurantRatingImage.image = UIImage(named: "extra_large_5")
+            default:
+                cell.restaurantRatingImage.image = UIImage(named: "extra_large_0")
+            }
+                
+            return cell
+        
+            
+            
         }
         else if (indexPath.section == 1)
         {
-            return dummyCell
+            
+            cell.restaurantNameLabel.text = differentArray[indexPath.row].restaurantName
+            cell.phoneNumberLabel.text = differentArray[indexPath.row].restaurantPhoneNumber.toPhoneNumber()
+            cell.categoryLabel.text = differentArray[indexPath.row].restaurantAlias
+            cell.numberReviewsLabel.text = String(differentArray[indexPath.row].restaurantReview_count)
+            cell.setImageView(theImageURL: differentArray[indexPath.row].restaurantImage_url)
+
+            switch differentArray[indexPath.row].restaurantRating {
+            case 0.0:
+                cell.restaurantRatingImage.image = UIImage(named: "extra_large_0")
+            case 1.0:
+                cell.restaurantRatingImage.image = UIImage(named: "extra_large_1")
+            case 1.5:
+                cell.restaurantRatingImage.image = UIImage(named: "extra_large_1_half")
+            case 2.0:
+                cell.restaurantRatingImage.image = UIImage(named: "extra_large_2")
+            case 2.5:
+                cell.restaurantRatingImage.image = UIImage(named: "extra_large_2_half")
+            case 3.0:
+                cell.restaurantRatingImage.image = UIImage(named: "extra_large_3")
+            case 3.5:
+                cell.restaurantRatingImage.image = UIImage(named: "extra_large_3_half")
+            case 4.0:
+                cell.restaurantRatingImage.image = UIImage(named: "extra_large_4")
+            case 4.5:
+                cell.restaurantRatingImage.image = UIImage(named: "extra_large_4_half")
+            case 5.0:
+                cell.restaurantRatingImage.image = UIImage(named: "extra_large_5")
+            default:
+                cell.restaurantRatingImage.image = UIImage(named: "extra_large_0")
+            }
+                
+            return cell
         }
-        return dummyCell
+        
+        return cell
     }
 
     //title section
@@ -92,9 +159,7 @@ class RecommendationTableViewController: UITableViewController
     {
         if search.favoriteRestaurants.count > 0
         {
-            if let user = currentUser
-            {
-                if user.userReturned.favoriteRestaurants.contains(search.favoriteRestaurants[0].restaurantID)
+                if currentUser.userReturned.favoriteRestaurants.contains(search.favoriteRestaurants[0].restaurantID)
                 {
                     similarArray.append(search.favoriteRestaurants[0])
                 }
@@ -106,7 +171,7 @@ class RecommendationTableViewController: UITableViewController
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
-            }
+            
         }
     }
 
@@ -114,24 +179,19 @@ class RecommendationTableViewController: UITableViewController
 
 extension RecommendationTableViewController: userProtocol
 {
-    func gotFriends() {
-        if currentUser?.userReturned.favoriteRestaurants.isEmpty == false && friend?.userReturned.favoriteRestaurants.isEmpty == false
+    func gotFriends() {}
+    
+    func gotRestaurants() {
+                
+        if currentUser.userReturned.favoriteRestaurants.isEmpty == false && friend.userReturned.favoriteRestaurants.isEmpty == false
         {
-            if let friend = friend
-            {
                 for id in friend.userReturned.favoriteRestaurants
                 {
                     search.getSingleRestaurant(restaurantID: id)
                 }
-            }
         }
-        
     }
-    
-    func gotRestaurants() {
-        
-    }
-    
+
     func gotError(error: Error) {
         print("Error")
     }

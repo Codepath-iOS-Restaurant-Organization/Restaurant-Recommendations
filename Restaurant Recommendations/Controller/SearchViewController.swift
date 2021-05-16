@@ -82,11 +82,6 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
         cell.numberReviewsLabel.text = String(search.allReturnedSearchBusinesses[indexPath.row].restaurantReview_count)
         cell.setImageView(theImageURL: search.allReturnedSearchBusinesses[indexPath.row].restaurantImage_url)
 
-
-        
-        
-        
-        
         switch search.allReturnedSearchBusinesses[indexPath.row].restaurantRating {
         case 0.0:
             cell.restaurantRatingImage.image = UIImage(named: "extra_large_0")
