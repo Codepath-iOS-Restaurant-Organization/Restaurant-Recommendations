@@ -13,12 +13,17 @@ class RecommendationTableViewController: UITableViewController
     var friendChosen = ""
     var currentUser: UserInformation?
     var friend: UserInformation?
+    var search = Search()
     
-//    let similarArray = []
-//    let differentArray = []
+    //similar/different array
+    var similarArray = [Restaurant]()
+    var differentArray = [Restaurant]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        currentUser?.userDelegate = self
+        friend?.userDelegate = self
+        search.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,43 +32,40 @@ class RecommendationTableViewController: UITableViewController
                 
         if let current = Auth.auth().currentUser?.email
         {
-            currentUser?.getUserFriends(email: current)
-            friend?.getUserFriends(email: friendChosen)
-            
-            friend?.userReturned.favoriteRestaurants
-            currentUser?.userReturned.favoriteRestaurants
+            currentUser?.getUserRestaurants(email: current)
+            friend?.getUserRestaurants(email: friendChosen)
         }
     }
 
-    // MARK: - Table view data source
-    
-
+    //return number of sections in table view
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        //returns 2 section (recommendation and other)
         return 2
     }
 
+    //return number of rows in table view
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
-//        if section == 0
-//        {
-//            return similarArray.count
-//        }
-//        if section == 1
-//        {
-//            return differentArray.count
-//        }
+        if section == 0
+        {
+            return similarArray.count
+        }
+        if section == 1
+        {
+            return differentArray.count
+        }
         
         return 0
     }
     
+    //color recommendated cell green
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell") as! RestaurantCell
+        _ = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell") as! RestaurantCell
         
         let dummyCell = UITableViewCell()
-        
+
         if (indexPath.section == 0)
         {
             dummyCell.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
@@ -86,5 +88,68 @@ class RecommendationTableViewController: UITableViewController
         }
     }
     
+    func checkSimilar(restaurantID:String)
+    {
+        if search.favoriteRestaurants.count > 0
+        {
+            if let user = currentUser
+            {
+                if user.userReturned.favoriteRestaurants.contains(search.favoriteRestaurants[0].restaurantID)
+                {
+                    similarArray.append(search.favoriteRestaurants[0])
+                }
+                else
+                {
+                    differentArray.append(search.favoriteRestaurants[0])
+                }
+                search.favoriteRestaurants.removeAll()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
 
+}
+
+extension RecommendationTableViewController: userProtocol
+{
+    func gotFriends() {
+        if currentUser?.userReturned.favoriteRestaurants.isEmpty == false && friend?.userReturned.favoriteRestaurants.isEmpty == false
+        {
+            if let friend = friend
+            {
+                for id in friend.userReturned.favoriteRestaurants
+                {
+                    search.getSingleRestaurant(restaurantID: id)
+                }
+            }
+        }
+        
+    }
+    
+    func gotRestaurants() {
+        
+    }
+    
+    func gotError(error: Error) {
+        print("Error")
+    }
+    
+    func gotUserProfileImage() {
+    }
+}
+
+extension RecommendationTableViewController : searchProtocol
+{
+    func UpdatUI(_ searchBrain: Search) {
+    }
+    
+    func didFailWithError(error: Error) {
+        print("error")
+    }
+    
+    func singleSearchDone() {
+        checkSimilar(restaurantID: search.favoriteRestaurants[0].restaurantID)
+    }
 }
