@@ -7,42 +7,39 @@
 
 import UIKit
 import Firebase
-class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, searchProtocol {
+    func UpdatUI(_ searchBrain: Search) {
+        
+    }
+    
+    func didFailWithError(error: Error) {
+        
+    }
+    
+    func singleSearchDone() {
+        DispatchQueue.main.async {
+            self.favoriteCollectionView.reloadData()
+        }
+        globalIndex+=1
+        if (globalIndex != globalCounter){
+            search.getSingleRestaurant(restaurantID:currentUser.userReturned.favoriteRestaurants[globalIndex])
+        }
+        
+    }
+    
     
     let firebase = FirebaseHelper()
+    let alert = MyAlert()
+    
     var currentUser = UserInformation()
     var friendsCounter = 0
     var tempURL = String()
+    var globalCounter = 0
+    var globalIndex = 0
+    var search = Search()
+   
     
-    let alert = MyAlert()
-    
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        firebase.delegate = self
-        currentUser.userDelegate = self
-        
-        profileImageView.layer.masksToBounds = true
-        profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
-        profileImageView.isHidden = true
-        friendsLabel.isHidden = true
-
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-  
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if let email = Auth.auth().currentUser?.email{
-            currentUser.getTotalUserInfo(email: email)
-        }
-    }
-    
+ 
     @IBAction func onAddFriend(_ sender: Any) {
         addFriendAlert()
     }
@@ -60,13 +57,72 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBOutlet weak var profileImageView: UIImageView!
     
-    
     @IBAction func onProfileImage(_ sender: Any) {
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
         picker.sourceType = .photoLibrary
         present(picker, animated: true, completion: nil)
+    }
+    
+    @IBOutlet weak var favoriteCollectionView: UICollectionView!
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return search.favoriteRestaurants.count //number of cells
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("hi")
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoritesCollectionViewCell", for: indexPath) as! FavoritesCollectionViewCell
+        cell.favoriteLabel.text = search.favoriteRestaurants[indexPath.row].restaurantName
+        cell.setCellImage(theImageURL: search.favoriteRestaurants[indexPath.row].restaurantImage_url)
+        return cell
+    }
+    func collectionView( collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            return CGSize(width: (collectionView.frame.size.width/3) - 3,
+                          height: (collectionView.frame.size.width/3) - 3)
+        }
+
+        func collectionView( collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+            return 1
+        }
+
+        func collectionView( collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+            return 1
+        }
+
+        func collectionView( collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+            return UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
+        }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        firebase.delegate = self
+        currentUser.userDelegate = self
+        favoriteCollectionView.delegate = self
+        favoriteCollectionView.dataSource = self
+        search.delegate = self
+        
+        profileImageView.layer.masksToBounds = true
+        profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
+        profileImageView.isHidden = true
+        friendsLabel.isHidden = true
+
+        self.favoriteCollectionView.reloadData()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+  
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let email = Auth.auth().currentUser?.email{
+            currentUser.getTotalUserInfo(email: email)
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -215,7 +271,13 @@ extension HomeViewController: userProtocol {
     }
     
     func gotRestaurants() {
-        
+        if currentUser.userReturned.favoriteRestaurants.isEmpty == false
+        {
+            globalCounter = currentUser.userReturned.favoriteRestaurants.count //total number of restaurants
+
+            search.getSingleRestaurant(restaurantID: currentUser.userReturned.favoriteRestaurants[globalIndex])
+            
+        }
     }
     
     func gotError(error: Error) {
