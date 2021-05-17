@@ -491,35 +491,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="OzN-vA-Ecs">
-                                <rect key="frame" x="131" y="21.5" width="153" height="151"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.058823529409999999" green="0.18903204800000001" blue="0.34079846740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="dGS-4G-N5s" appends="YES" id="NTR-4U-Q3i"/>
-                                </connections>
-                            </imageView>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 Friends" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIs-vt-nN3">
-                                <rect key="frame" x="131" y="181" width="153" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" label="0 Friends"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="lOL-Ru-J6n" appends="YES" id="IaA-kr-fCf"/>
-                                </connections>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Favorite Restaurants" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQB-RH-8ox">
-                                <rect key="frame" x="0.0" y="229" width="414" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.058823529409999999" green="0.18903204800000001" blue="0.34079846740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="19"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVR-9N-PJs">
                                 <rect key="frame" x="150" y="702" width="114" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -528,10 +499,61 @@
                                     <segue destination="fzy-Dk-zkh" kind="show" id="6xY-5J-ERC"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="FfP-gg-zoa">
+                                <rect key="frame" x="0.0" y="10" width="414" height="247.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="OzN-vA-Ecs">
+                                        <rect key="frame" x="130.5" y="1.5" width="153" height="151"/>
+                                        <color key="backgroundColor" red="0.058823529409999999" green="0.18903204800000001" blue="0.34079846740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="153" id="Eoc-aR-iDs"/>
+                                            <constraint firstAttribute="height" constant="153.5" id="VuU-ga-eHA"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="dGS-4G-N5s" appends="YES" id="NTR-4U-Q3i"/>
+                                        </connections>
+                                    </imageView>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Friends" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIs-vt-nN3">
+                                        <rect key="frame" x="0.0" y="160.5" width="414" height="40"/>
+                                        <color key="backgroundColor" red="0.058823529409999999" green="0.18823529410000001" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration" label="0 Friends"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="AdE-AT-6UR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="lOL-Ru-J6n" appends="YES" id="IaA-kr-fCf"/>
+                                        </connections>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite Restaurants" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQB-RH-8ox">
+                                        <rect key="frame" x="0.0" y="207.5" width="414" height="40"/>
+                                        <color key="backgroundColor" red="0.058823529411764705" green="0.18823529411764706" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="eZW-k3-pBS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="HIs-vt-nN3" firstAttribute="leading" secondItem="FfP-gg-zoa" secondAttribute="leading" id="7ip-hy-Mf6"/>
+                                    <constraint firstAttribute="trailing" secondItem="wQB-RH-8ox" secondAttribute="trailing" id="NOg-6A-N2o"/>
+                                    <constraint firstItem="wQB-RH-8ox" firstAttribute="leading" secondItem="FfP-gg-zoa" secondAttribute="leading" id="SeU-5K-gKo"/>
+                                    <constraint firstAttribute="trailing" secondItem="HIs-vt-nN3" secondAttribute="trailing" id="d2d-q1-9iv"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NM0-35-4VH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="FfP-gg-zoa" firstAttribute="leading" secondItem="NM0-35-4VH" secondAttribute="leading" id="4KR-R9-VPi"/>
+                            <constraint firstItem="NM0-35-4VH" firstAttribute="trailing" secondItem="FfP-gg-zoa" secondAttribute="trailing" id="ngw-gZ-gDb"/>
+                            <constraint firstItem="FfP-gg-zoa" firstAttribute="top" secondItem="NM0-35-4VH" secondAttribute="top" constant="10" id="on6-yq-PhX"/>
                             <constraint firstItem="NM0-35-4VH" firstAttribute="bottom" secondItem="GVR-9N-PJs" secondAttribute="bottom" constant="30" id="qlJ-CY-K5r"/>
                             <constraint firstItem="NM0-35-4VH" firstAttribute="trailing" secondItem="GVR-9N-PJs" secondAttribute="trailing" constant="150" id="rul-eW-fjq"/>
                             <constraint firstItem="GVR-9N-PJs" firstAttribute="leading" secondItem="NM0-35-4VH" secondAttribute="leading" constant="150" id="zlY-iE-FWE"/>
