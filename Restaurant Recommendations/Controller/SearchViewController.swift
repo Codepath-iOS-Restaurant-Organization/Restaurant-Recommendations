@@ -79,7 +79,7 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
         cell.restaurantNameLabel.text = search.allReturnedSearchBusinesses[indexPath.row].restaurantName
         cell.phoneNumberLabel.text = search.allReturnedSearchBusinesses[indexPath.row].restaurantPhoneNumber.toPhoneNumber()
         cell.categoryLabel.text = search.allReturnedSearchBusinesses[indexPath.row].restaurantAlias
-        cell.numberReviewsLabel.text = String(search.allReturnedSearchBusinesses[indexPath.row].restaurantReview_count)
+        cell.numberReviewsLabel.text = "Reviews: " + String(search.allReturnedSearchBusinesses[indexPath.row].restaurantReview_count)
         cell.setImageView(theImageURL: search.allReturnedSearchBusinesses[indexPath.row].restaurantImage_url)
 
         switch search.allReturnedSearchBusinesses[indexPath.row].restaurantRating {
@@ -131,7 +131,8 @@ extension SearchViewController : UISearchBarDelegate {
         else {
             
             // Gets search bar text, encodes the URL string, and performs API request.
-            if let searchBarText = searchBar.text?.addingPercentEncoding(withAllowedCharacters: .urlUserAllowed) {
+            if let searchBarText = searchBar.text?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+                
                 search.perfromSearchApiReqest(lattitude: stringLat!, longtitude: stringLon!, restaurantName: searchBarText)
             }
         }
