@@ -14,6 +14,10 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     var friendsCounter = 0
     var tempURL = String()
     
+    let alert = MyAlert()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         firebase.delegate = self
@@ -105,7 +109,6 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     func setImageViewsImageFromURL (theImageURL: String){
-        print("hi")
         if let url = URL(string: theImageURL){
             
             let session = URLSession(configuration: .default)
@@ -155,7 +158,14 @@ extension HomeViewController: firebaseProtocols{
     }
     
     func friendAdded() {
-        print("added successfully")
+        
+        alert.presentAlert(title: "Success !",
+                           message: "Friend has been added.",
+                           viewController: self) {
+            
+        }
+        
+        
     }
     
     func restaurantAdded() {

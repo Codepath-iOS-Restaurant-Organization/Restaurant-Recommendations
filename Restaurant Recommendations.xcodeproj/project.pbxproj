@@ -22,6 +22,7 @@
 		DD3DD820262D2C6500661A7F /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3DD81F262D2C6500661A7F /* FriendsTableViewController.swift */; };
 		DD3DD823262D2CCE00661A7F /* RecommendationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3DD822262D2CCE00661A7F /* RecommendationTableViewController.swift */; };
 		DD862F6B2649BE8500A316D3 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD862F6A2649BE8500A316D3 /* FriendTableViewCell.swift */; };
+		DD99351E2652CD3B002FCB55 /* MyAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD99351D2652CD3B002FCB55 /* MyAlert.swift */; };
 		DDA318D52623CA0000CC1A5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA318D42623CA0000CC1A5D /* AppDelegate.swift */; };
 		DDA318D72623CA0000CC1A5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA318D62623CA0000CC1A5D /* SceneDelegate.swift */; };
 		DDA318D92623CA0000CC1A5D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA318D82623CA0000CC1A5D /* LoginViewController.swift */; };
@@ -48,6 +49,7 @@
 		DD3DD81F262D2C6500661A7F /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		DD3DD822262D2CCE00661A7F /* RecommendationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationTableViewController.swift; sourceTree = "<group>"; };
 		DD862F6A2649BE8500A316D3 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
+		DD99351D2652CD3B002FCB55 /* MyAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlert.swift; sourceTree = "<group>"; };
 		DDA318D12623CA0000CC1A5D /* Restaurant Recommendations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Restaurant Recommendations.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA318D42623CA0000CC1A5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDA318D62623CA0000CC1A5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			children = (
 				DDA318DA2623CA0000CC1A5D /* Main.storyboard */,
 				DD862F6A2649BE8500A316D3 /* FriendTableViewCell.swift */,
+				DD99351D2652CD3B002FCB55 /* MyAlert.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD99351E2652CD3B002FCB55 /* MyAlert.swift in Sources */,
 				B355544126406DBF008D1B44 /* RestaurantCell.swift in Sources */,
 				DD2864632624B5E40049B1C5 /* UserInformation.swift in Sources */,
 				DD3DD816262D2BBD00661A7F /* SearchViewController.swift in Sources */,

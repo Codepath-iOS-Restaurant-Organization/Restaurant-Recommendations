@@ -19,6 +19,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     
+    let loginAlert = MyAlert()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,14 +63,25 @@ extension LoginViewController: firebaseProtocols {
         //take user to the home screen
         //set user default to true
         UserDefaults.standard.set(true, forKey: "loginSuccess")
-        DispatchQueue.main.async {
+        
+        loginAlert.presentAlert(title: "Success !",
+                                message: "You have Registered.",
+                                viewController: self) {
+            
             self.performSegue(withIdentifier: "loginToHome", sender: self)
         }
+        
+        
     }
 
     func signInSuccessful() {
         UserDefaults.standard.set(true, forKey: "loginSuccess")
-        DispatchQueue.main.async {
+        
+        
+        loginAlert.presentAlert(title: "Success !",
+                                message: "You have loged in.",
+                                viewController: self) {
+            
             self.performSegue(withIdentifier: "loginToHome", sender: self)
         }
     }
