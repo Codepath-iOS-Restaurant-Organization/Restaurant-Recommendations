@@ -68,6 +68,16 @@ class RestaurantDetailViewController: UIViewController {
         if let chosen = chosenRestaurant {
             setImageView(theImageURL: chosen.restaurantImage_url)
             
+            streetCityLabel.text = chosen.restaurantAddress.address1
+            stateZipCodeLabel.text = "\(chosen.restaurantAddress.city), \(chosen.restaurantAddress.state) \(chosen.restaurantAddress.zip_code)"
+            
+            totalAmountOfReviewsLabel.text = String(chosen.restaurantReview_count)
+            
+            
+            
+            
+            
+            
         }
 
     }
