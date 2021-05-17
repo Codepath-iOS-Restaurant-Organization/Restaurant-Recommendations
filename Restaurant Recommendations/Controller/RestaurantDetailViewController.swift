@@ -24,6 +24,8 @@ class RestaurantDetailViewController: UIViewController {
     
     @IBOutlet weak var restaurantImageView: UIImageView!
     
+    let alert = MyAlert()
+    
     
     var chosenRestaurant: Restaurant?
     let fire = FirebaseHelper()
@@ -142,7 +144,12 @@ extension RestaurantDetailViewController: firebaseProtocols {
     
     func restaurantAdded() {
         
-        navigationController?.popToRootViewController(animated: true)
+        alert.presentAlert(title: "Success !",
+                           message: "Restaurant Has Been Added To You Favorites.",
+                           viewController: self) {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        
         
         
         
