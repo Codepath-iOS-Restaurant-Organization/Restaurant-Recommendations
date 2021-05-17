@@ -139,7 +139,8 @@ class Search {
                 restaurantAddress: decodedData.location,
                 restaurantLatitude: decodedData.coordinates.latitude,
                 restaurantLongitude: decodedData.coordinates.longitude,
-                restaurantID: decodedData.id)
+                restaurantID: decodedData.id,
+                restaurantDollarSign: decodedData.price ?? "")
             
             favoriteRestaurants.append(newObject)
             delegate?.singleSearchDone()
@@ -172,7 +173,8 @@ class Search {
                     restaurantAddress: object.location,
                     restaurantLatitude: object.coordinates.latitude,
                     restaurantLongitude: object.coordinates.longitude,
-                    restaurantID: object.id)
+                    restaurantID: object.id,
+                    restaurantDollarSign: object.price ?? "")
                 
                 allReturnedSearchBusinesses.append(newObject)
                 

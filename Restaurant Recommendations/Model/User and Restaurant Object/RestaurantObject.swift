@@ -18,4 +18,5 @@ struct Restaurant {
     let restaurantLatitude: Float
     let restaurantLongitude: Float
     let restaurantID: String
+    let restaurantDollarSign: String
 }

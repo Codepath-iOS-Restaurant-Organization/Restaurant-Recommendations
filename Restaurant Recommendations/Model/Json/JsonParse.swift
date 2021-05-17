@@ -23,6 +23,7 @@ struct businesses: Codable {
     let coordinates : coordinates
     let id: String
     let location: location
+    let price: String?
 }
 
 struct location: Codable {
