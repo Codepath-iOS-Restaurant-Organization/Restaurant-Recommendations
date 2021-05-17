@@ -25,6 +25,8 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         profileImageView.layer.masksToBounds = true
         profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
+        profileImageView.isHidden = true
+        friendsLabel.isHidden = true
 
         
     }
@@ -126,6 +128,10 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                         if let unwrappedImage = tempImage {
                             DispatchQueue.main.async {
                                 self.profileImageView.image = unwrappedImage
+                                UIView.animate(withDuration: 2) {
+                                    self.profileImageView.isHidden = false
+                                }
+                                
                              
                             }
                         }
@@ -200,6 +206,9 @@ extension UIImage {
 extension HomeViewController: userProtocol {
 
     func gotFriends() {
+        UIView.animate(withDuration: 1) {
+            self.friendsLabel.isHidden = false
+        }
         friendsCounter = currentUser.userReturned.friends.count
         friendsLabel.text = String(friendsCounter) + " friends"
     }
