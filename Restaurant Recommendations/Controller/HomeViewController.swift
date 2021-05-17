@@ -51,6 +51,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBAction func onFriendsCount(_ sender: Any) {
         print("tapped")
+        self.performSegue(withIdentifier: "friendsView", sender: self)
     }
     
     @IBAction func onLogout(_ sender: Any) {
