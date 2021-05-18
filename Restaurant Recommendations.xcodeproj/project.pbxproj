@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B355544126406DBF008D1B44 /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B355544026406DBF008D1B44 /* RestaurantCell.swift */; };
 		B64DACDF265298B1D7F5C146 /* Pods_Restaurant_Recommendations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 221CC578EAA9B0EC4FB7DEED /* Pods_Restaurant_Recommendations.framework */; };
+		DD1303FF2654249B00D54DBC /* Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1303FE2654249B00D54DBC /* Styling.swift */; };
 		DD28643E2624B0B60049B1C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD28643D2624B0B60049B1C5 /* GoogleService-Info.plist */; };
 		DD2864552624B41F0049B1C5 /* RestaurantObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2864542624B41F0049B1C5 /* RestaurantObject.swift */; };
 		DD2864592624B4830049B1C5 /* JsonParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2864582624B4830049B1C5 /* JsonParse.swift */; };
@@ -36,6 +37,7 @@
 		221CC578EAA9B0EC4FB7DEED /* Pods_Restaurant_Recommendations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Restaurant_Recommendations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BEDAFE3747856C4FBA51EE6 /* Pods-Restaurant Recommendations.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Restaurant Recommendations.debug.xcconfig"; path = "Target Support Files/Pods-Restaurant Recommendations/Pods-Restaurant Recommendations.debug.xcconfig"; sourceTree = "<group>"; };
 		B355544026406DBF008D1B44 /* RestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCell.swift; sourceTree = "<group>"; };
+		DD1303FE2654249B00D54DBC /* Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styling.swift; sourceTree = "<group>"; };
 		DD28643D2624B0B60049B1C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD2864542624B41F0049B1C5 /* RestaurantObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantObject.swift; sourceTree = "<group>"; };
 		DD2864582624B4830049B1C5 /* JsonParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParse.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		DDA318EB2623CA4500CC1A5D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DD1303FE2654249B00D54DBC /* Styling.swift */,
 				DD28646C2624B6970049B1C5 /* User and Restaurant Object */,
 				DD28645D2624B4D00049B1C5 /* Api and Firebase */,
 				DD28645B2624B4960049B1C5 /* Json */,
@@ -299,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD1303FF2654249B00D54DBC /* Styling.swift in Sources */,
 				DD99351E2652CD3B002FCB55 /* MyAlert.swift in Sources */,
 				B355544126406DBF008D1B44 /* RestaurantCell.swift in Sources */,
 				DD2864632624B5E40049B1C5 /* UserInformation.swift in Sources */,

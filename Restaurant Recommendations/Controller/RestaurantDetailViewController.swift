@@ -25,6 +25,15 @@ class RestaurantDetailViewController: UIViewController {
     
     @IBOutlet weak var restaurantImageView: UIImageView!
     
+    
+    @IBOutlet weak var addToFavoritesButtonOutlet: UIButton!
+    
+    @IBOutlet weak var shareWithFriendButtonOutlet: UIButton!
+    
+    
+    
+    
+    
     let alert = MyAlert()
     let message = MFMessageComposeViewController()
     
@@ -133,6 +142,11 @@ class RestaurantDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         fire.delegate = self
         message.delegate = self
+        
+        Styling.styleButton(theButton: addToFavoritesButtonOutlet)
+        Styling.styleButton(theButton: shareWithFriendButtonOutlet)
+        
+        
     }
     
     @IBAction func addToFavoritesPressed(_ sender: UIButton) {
@@ -186,6 +200,9 @@ extension RestaurantDetailViewController: UINavigationControllerDelegate, MFMess
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         
         message.dismiss(animated: true, completion: nil)
+        alert.presentAlert(title: "Success !", message: "Restaurant Has Been Shared.", viewController: self) {
+            
+        }
         
     }
     

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f5s-WL-hX5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="J2w-yP-p1w">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -104,7 +104,7 @@
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="exF-Dy-o1G">
                                 <rect key="frame" x="0.0" y="51" width="414" height="757"/>
-                                <color key="backgroundColor" red="0.90588235289999997" green="0.90980392160000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.058823529409999999" green="0.18823529410000001" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantCell" rowHeight="159" id="GrS-72-I4K" customClass="RestaurantCell" customModule="Restaurant_Recommendations" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="159"/>
@@ -214,7 +214,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="okM-LD-ndu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.058823529409999999" green="0.18823529410000001" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="110" id="L26-j3-Udj" customClass="FriendTableViewCell" customModule="Restaurant_Recommendations" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="110"/>
@@ -390,10 +390,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="KRK-GU-puW"/>
                     <connections>
+                        <outlet property="addToFavoritesButtonOutlet" destination="LoI-NB-Pvz" id="CoZ-EQ-aNc"/>
                         <outlet property="dollarSignLabel" destination="e8v-Bz-v39" id="495-cF-KVF"/>
                         <outlet property="phoneNumberLabel" destination="ASX-y5-f9n" id="47I-RO-Zsb"/>
                         <outlet property="restaurantImageView" destination="Zbm-Mv-QH9" id="nt6-H5-cvB"/>
                         <outlet property="restaurantNameLabel" destination="X9V-dB-y8k" id="JaJ-so-VnZ"/>
+                        <outlet property="shareWithFriendButtonOutlet" destination="tN0-Xq-qmN" id="jZ0-eX-bwx"/>
                         <outlet property="starImageView" destination="auj-E1-y2S" id="mIJ-mf-bad"/>
                         <outlet property="stateZipCodeLabel" destination="0hw-92-i0A" id="aEH-uw-hjI"/>
                         <outlet property="streetCityLabel" destination="WW1-bS-VHI" id="lke-cE-PAL"/>
@@ -412,7 +414,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="H1V-er-xxg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.90588235289999997" green="0.90980392160000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.058823529409999999" green="0.18823529410000001" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantCell" rowHeight="159" id="FGw-dH-m0G" customClass="RestaurantCell" customModule="Restaurant_Recommendations" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="159"/>
@@ -512,9 +514,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVR-9N-PJs">
-                                <rect key="frame" x="150" y="702" width="114" height="42"/>
+                                <rect key="frame" x="60" y="702" width="294" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Search"/>
+                                <state key="normal" title="Search For A Restaurant"/>
                                 <connections>
                                     <segue destination="fzy-Dk-zkh" kind="show" id="6xY-5J-ERC"/>
                                 </connections>
@@ -575,8 +577,8 @@
                             <constraint firstItem="NM0-35-4VH" firstAttribute="trailing" secondItem="FfP-gg-zoa" secondAttribute="trailing" id="ngw-gZ-gDb"/>
                             <constraint firstItem="FfP-gg-zoa" firstAttribute="top" secondItem="NM0-35-4VH" secondAttribute="top" constant="10" id="on6-yq-PhX"/>
                             <constraint firstItem="NM0-35-4VH" firstAttribute="bottom" secondItem="GVR-9N-PJs" secondAttribute="bottom" constant="30" id="qlJ-CY-K5r"/>
-                            <constraint firstItem="NM0-35-4VH" firstAttribute="trailing" secondItem="GVR-9N-PJs" secondAttribute="trailing" constant="150" id="rul-eW-fjq"/>
-                            <constraint firstItem="GVR-9N-PJs" firstAttribute="leading" secondItem="NM0-35-4VH" secondAttribute="leading" constant="150" id="zlY-iE-FWE"/>
+                            <constraint firstItem="NM0-35-4VH" firstAttribute="trailing" secondItem="GVR-9N-PJs" secondAttribute="trailing" constant="60" id="rul-eW-fjq"/>
+                            <constraint firstItem="GVR-9N-PJs" firstAttribute="leading" secondItem="NM0-35-4VH" secondAttribute="leading" constant="60" id="zlY-iE-FWE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="K45-Yr-LCs">
@@ -596,6 +598,7 @@
                     <connections>
                         <outlet property="friendsLabel" destination="HIs-vt-nN3" id="Kut-QC-yuq"/>
                         <outlet property="profileImageView" destination="OzN-vA-Ecs" id="6yf-Fy-R1U"/>
+                        <outlet property="searchButtonOutlet" destination="GVR-9N-PJs" id="YF8-V3-rSE"/>
                         <segue destination="f5s-WL-hX5" kind="show" id="F8K-Rh-XQr"/>
                     </connections>
                 </viewController>
@@ -770,10 +773,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="o2h-4Z-OGY"/>
                     <connections>
+                        <outlet property="addToFavoritesButtonOutlet" destination="7fi-6Q-iUz" id="4gs-Go-p6A"/>
                         <outlet property="dollarSignLabel" destination="dSs-Le-Uk2" id="85h-eW-UWj"/>
                         <outlet property="phoneNumberLabel" destination="iWE-b5-IgV" id="l5Q-cL-B52"/>
                         <outlet property="restaurantImageView" destination="eRd-NS-efG" id="TGX-DA-6bo"/>
                         <outlet property="restaurantNameLabel" destination="G9G-Lc-hsa" id="2gt-Cv-gMV"/>
+                        <outlet property="shareWithFriendButtonOutlet" destination="oU0-1k-dWe" id="PkR-Mq-aOn"/>
                         <outlet property="starImageView" destination="ahI-1U-5iY" id="cfQ-qI-d0h"/>
                         <outlet property="stateZipCodeLabel" destination="l9H-FQ-n05" id="NXq-kw-S09"/>
                         <outlet property="streetCityLabel" destination="xFL-YY-v2X" id="0Wd-dO-2e5"/>

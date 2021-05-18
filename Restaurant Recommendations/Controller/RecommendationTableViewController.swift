@@ -110,7 +110,7 @@ class RecommendationTableViewController: UITableViewController
         }
         else if (indexPath.section == 1)
         {
-            
+            cell.backgroundColor = Styling.tier1
             cell.restaurantNameLabel.text = differentArray[indexPath.row].restaurantName
             cell.phoneNumberLabel.text = differentArray[indexPath.row].restaurantPhoneNumber.toPhoneNumber()
             cell.categoryLabel.text = differentArray[indexPath.row].restaurantAlias

@@ -9,6 +9,12 @@ import UIKit
 import Firebase
 class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    
+    @IBOutlet weak var searchButtonOutlet: UIButton!
+    
+    
+    
+    
     let firebase = FirebaseHelper()
     var currentUser = UserInformation()
     var friendsCounter = 0
@@ -27,6 +33,8 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
         profileImageView.isHidden = true
         friendsLabel.isHidden = true
+        
+        Styling.styleButton(theButton: searchButtonOutlet)
 
         
     }
@@ -210,7 +218,7 @@ extension HomeViewController: userProtocol {
             self.friendsLabel.isHidden = false
         }
         friendsCounter = currentUser.userReturned.friends.count
-        friendsLabel.text = String(friendsCounter) + " friends"
+        friendsLabel.text = String(friendsCounter) + " Friends"
     }
     
     func gotRestaurants() {
