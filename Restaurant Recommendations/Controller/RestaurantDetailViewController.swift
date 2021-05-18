@@ -88,12 +88,6 @@ class RestaurantDetailViewController: UIViewController {
             totalAmountOfReviewsLabel.text = String(chosen.restaurantReview_count)
             
             dollarSignLabel.text = chosen.restaurantDollarSign
-            
-            
-            
-            
-            
-            
         }
 
     }
