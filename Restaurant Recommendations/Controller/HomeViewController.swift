@@ -108,7 +108,9 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func logoutAndLeave(){
         firebase.signOutUser()
         UserDefaults.standard.set(false, forKey: "loginSuccess")
-        self.dismiss(animated: true, completion: nil)
+        alert.presentAlert(title: "Success!", message: "You have signed out.", viewController: self) {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     func logoutAlert(){
