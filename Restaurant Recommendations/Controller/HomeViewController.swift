@@ -7,7 +7,7 @@
 
 import UIKit
 import Firebase
-class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, searchProtocol {
+class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, searchProtocol {
     func UpdatUI(_ searchBrain: Search) {
         
     }
@@ -67,33 +67,6 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBOutlet weak var favoriteCollectionView: UICollectionView!
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return search.favoriteRestaurants.count //number of cells
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("hi")
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoritesCollectionViewCell", for: indexPath) as! FavoritesCollectionViewCell
-        cell.favoriteLabel.text = search.favoriteRestaurants[indexPath.row].restaurantName
-        cell.setCellImage(theImageURL: search.favoriteRestaurants[indexPath.row].restaurantImage_url)
-        return cell
-    }
-    func collectionView( collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: (collectionView.frame.size.width/3) - 3,
-                          height: (collectionView.frame.size.width/3) - 3)
-        }
-
-        func collectionView( collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-            return 1
-        }
-
-        func collectionView( collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-            return 1
-        }
-
-        func collectionView( collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-            return UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
-        }
     
     
     override func viewDidLoad() {
@@ -102,6 +75,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         currentUser.userDelegate = self
         favoriteCollectionView.delegate = self
         favoriteCollectionView.dataSource = self
+        
         search.delegate = self
         
         profileImageView.layer.masksToBounds = true
@@ -289,4 +263,37 @@ extension HomeViewController: userProtocol {
         tempURL = currentUser.userReturned.profilePicture
         setImageViewsImageFromURL(theImageURL: tempURL)
     }
+}
+
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return search.favoriteRestaurants.count //number of cells
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("hi")
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoritesCollectionViewCell", for: indexPath) as! FavoritesCollectionViewCell
+        cell.favoriteLabel.text = search.favoriteRestaurants[indexPath.row].restaurantName
+        cell.setCellImage(theImageURL: search.favoriteRestaurants[indexPath.row].restaurantImage_url)
+        return cell
+    }
+    func collectionView( _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            return CGSize(width: (favoriteCollectionView.frame.size.width/3) - 3,
+                          height: (favoriteCollectionView.frame.size.width/3) - 3)
+        }
+
+    func collectionView( _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+            return 1
+        }
+
+    func collectionView( _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+            return 1
+        }
+
+    func collectionView( _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+            return UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
+        }
+    
 }

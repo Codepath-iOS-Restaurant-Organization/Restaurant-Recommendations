@@ -121,7 +121,6 @@
 		DDA318C82623CA0000CC1A5D = {
 			isa = PBXGroup;
 			children = (
-				9738FD942653149B00F11CEB /* FavoritesCollectionViewCell.swift */,
 				DDA318D32623CA0000CC1A5D /* Restaurant Recommendations */,
 				DDA318D22623CA0000CC1A5D /* Products */,
 				D22EAA029755C4F6A520F0FD /* Pods */,
@@ -159,6 +158,7 @@
 				DDA318DA2623CA0000CC1A5D /* Main.storyboard */,
 				DD862F6A2649BE8500A316D3 /* FriendTableViewCell.swift */,
 				DD99351D2652CD3B002FCB55 /* MyAlert.swift */,
+				9738FD942653149B00F11CEB /* FavoritesCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
