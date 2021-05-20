@@ -110,7 +110,7 @@ class RecommendationTableViewController: UITableViewController
         }
         else if (indexPath.section == 1)
         {
-            cell.backgroundColor = Styling.tier1
+            
             cell.restaurantNameLabel.text = differentArray[indexPath.row].restaurantName
             cell.phoneNumberLabel.text = differentArray[indexPath.row].restaurantPhoneNumber.toPhoneNumber()
             cell.categoryLabel.text = differentArray[indexPath.row].restaurantAlias
@@ -221,7 +221,7 @@ extension RecommendationTableViewController: userProtocol
                 
         if currentUser.userReturned.favoriteRestaurants.isEmpty == false && friend.userReturned.favoriteRestaurants.isEmpty == false
         {
-            globalCounter = friend.userReturned.favoriteRestaurants.count
+            globalCounter = friend.userReturned.favoriteRestaurants.count //total number of restaurants
             
             search.getSingleRestaurant(restaurantID: friend.userReturned.favoriteRestaurants[globalIndex])
             

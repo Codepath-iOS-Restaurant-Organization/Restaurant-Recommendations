@@ -7,7 +7,6 @@
 
 import UIKit
 import Firebase
-import MessageUI
 
 class RestaurantDetailViewController: UIViewController {
 
@@ -25,18 +24,7 @@ class RestaurantDetailViewController: UIViewController {
     
     @IBOutlet weak var restaurantImageView: UIImageView!
     
-    
-    @IBOutlet weak var addToFavoritesButtonOutlet: UIButton!
-    
-    @IBOutlet weak var shareWithFriendButtonOutlet: UIButton!
-    
-    
-    
-    
-    
     let alert = MyAlert()
-    let message = MFMessageComposeViewController()
-    
     
     
     var chosenRestaurant: Restaurant?
@@ -88,6 +76,12 @@ class RestaurantDetailViewController: UIViewController {
             totalAmountOfReviewsLabel.text = String(chosen.restaurantReview_count)
             
             dollarSignLabel.text = chosen.restaurantDollarSign
+            
+            
+            
+            
+            
+            
         }
 
     }
@@ -135,12 +129,6 @@ class RestaurantDetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         fire.delegate = self
-        message.delegate = self
-        
-        Styling.styleButton(theButton: addToFavoritesButtonOutlet)
-        Styling.styleButton(theButton: shareWithFriendButtonOutlet)
-        
-        
     }
     
     @IBAction func addToFavoritesPressed(_ sender: UIButton) {
@@ -150,59 +138,7 @@ class RestaurantDetailViewController: UIViewController {
         }
     }
     
-    
-    @IBAction func shareWithFriendPressed(_ sender: UIButton) {
-        
-        
-        
-        if MFMessageComposeViewController.canSendText() {
-            message.messageComposeDelegate = self
-            if let chosen = chosenRestaurant {
-                
-                message.body = " Hey! Do you want to try: \n \(chosen.restaurantName). \n It is located at: \n \(chosen.restaurantAddress.address1) \n \(chosen.restaurantAddress.city) \(chosen.restaurantAddress.state) \(chosen.restaurantAddress.zip_code) \n It has a \(chosen.restaurantRating) rating."
-                
-                
-                if MFMessageComposeViewController.canSendAttachments() {
-                    
-                    if let imageData = restaurantImageView.image?.pngData() {
-                        message.addAttachmentData(imageData, typeIdentifier: "image/png", filename: "RestaurantImage.png")
-                        
-                    }
-                }
-                
-                
-                
-                
-                self.present(message, animated: true, completion: nil)
-                
-            }
-            
-            
-            
-            
-        }
-        
-        
-    }
-    
-    
-    
-    
 }
-
-extension RestaurantDetailViewController: UINavigationControllerDelegate, MFMessageComposeViewControllerDelegate {
-    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        
-        message.dismiss(animated: true, completion: nil)
-        alert.presentAlert(title: "Success !", message: "Restaurant Has Been Shared.", viewController: self) {
-            
-        }
-        
-    }
-    
-    
-}
-
 
 extension RestaurantDetailViewController: firebaseProtocols {
     

@@ -82,27 +82,10 @@ class FriendsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         friendChose = currentUser.userReturned.friends[indexPath.row]
         
-        let cell = tableView.cellForRow(at: indexPath) as! FriendTableViewCell
-        
-        UIView.animate(withDuration: 1) {
-            cell.friendEmail.isHidden = true
-        } completion: { done in
-            
-            
-            UIView.animate(withDuration: 0.5) {
-                
-                cell.friendImage.transform = cell.friendImage.transform.rotated(by: .pi)
-                cell.friendImage.transform = cell.friendImage.transform.rotated(by: .pi)
-                cell.friendImage.transform = cell.friendImage.transform.rotated(by: .pi)
-                cell.friendImage.transform = cell.friendImage.transform.rotated(by: .pi)
-                
-            } completion: { _ in
-                
-                self.performSegue(withIdentifier: "friendsToRec", sender: self)
-                cell.friendEmail.isHidden = false
-            }
-        }
+        performSegue(withIdentifier: "friendsToRec", sender: self)
     }
+    
+    
 }
 
 extension FriendsTableViewController: userProtocol {
