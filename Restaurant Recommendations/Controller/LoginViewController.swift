@@ -24,9 +24,10 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        firebase.delegate = self
         // Do any additional setup after loading the view.
         firebase.delegate = self
+        Styling.styleButton(theButton: loginButton)
+        Styling.styleButton(theButton: signUpButton)
     }
 
 
