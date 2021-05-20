@@ -249,8 +249,11 @@ extension HomeViewController: userProtocol {
         {
             globalCounter = currentUser.userReturned.favoriteRestaurants.count //total number of restaurants
 
-            search.getSingleRestaurant(restaurantID: currentUser.userReturned.favoriteRestaurants[globalIndex])
-            
+            if (globalCounter != search.favoriteRestaurants.count){
+                search.favoriteRestaurants.removeAll()
+                globalIndex = 0
+                search.getSingleRestaurant(restaurantID: currentUser.userReturned.favoriteRestaurants[globalIndex])
+            }
         }
     }
     
