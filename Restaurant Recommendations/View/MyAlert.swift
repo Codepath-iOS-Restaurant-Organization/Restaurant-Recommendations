@@ -130,7 +130,7 @@ class MyAlert {
                 var delayTime: TimeInterval = 0
                 
                 if (done) {
-                    delayTime = 2
+                    delayTime = 1
                 }
                 
                 UIView.animate(withDuration: 1, delay: delayTime) {
