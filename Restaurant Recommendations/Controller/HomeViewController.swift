@@ -7,26 +7,7 @@
 
 import UIKit
 import Firebase
-class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, searchProtocol {
-    func UpdatUI(_ searchBrain: Search) {
-        
-    }
-    
-    func didFailWithError(error: Error) {
-        
-    }
-    
-    func singleSearchDone() {
-        DispatchQueue.main.async {
-            self.favoriteCollectionView.reloadData()
-        }
-        globalIndex+=1
-        if (globalIndex != globalCounter){
-            search.getSingleRestaurant(restaurantID:currentUser.userReturned.favoriteRestaurants[globalIndex])
-        }
-        
-    }
-    
+class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
     @IBOutlet weak var searchButtonOutlet: UIButton!
@@ -35,43 +16,11 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     
     let firebase = FirebaseHelper()
-    let alert = MyAlert()
-    
     var currentUser = UserInformation()
     var friendsCounter = 0
     var tempURL = String()
-    var globalCounter = 0
-    var globalIndex = 0
-    var search = Search()
-   
     
- 
-    @IBAction func onAddFriend(_ sender: Any) {
-        addFriendAlert()
-    }
-    
-    @IBOutlet weak var friendsLabel: UILabel!
-    
-    @IBAction func onFriendsCount(_ sender: Any) {
-        print("tapped")
-        self.performSegue(withIdentifier: "friendsView", sender: self)
-    }
-    
-    @IBAction func onLogout(_ sender: Any) {
-        logoutAlert()
-    }
-    
-    @IBOutlet weak var profileImageView: UIImageView!
-    
-    @IBAction func onProfileImage(_ sender: Any) {
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.allowsEditing = true
-        picker.sourceType = .photoLibrary
-        present(picker, animated: true, completion: nil)
-    }
-    
-    @IBOutlet weak var favoriteCollectionView: UICollectionView!
+    let alert = MyAlert()
     
     
     
@@ -79,10 +28,6 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         super.viewDidLoad()
         firebase.delegate = self
         currentUser.userDelegate = self
-        favoriteCollectionView.delegate = self
-        favoriteCollectionView.dataSource = self
-        
-        search.delegate = self
         
         profileImageView.layer.masksToBounds = true
         profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
@@ -91,7 +36,6 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         Styling.styleButton(theButton: searchButtonOutlet)
 
-        self.favoriteCollectionView.reloadData()
         
     }
     
@@ -105,6 +49,31 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         if let email = Auth.auth().currentUser?.email{
             currentUser.getTotalUserInfo(email: email)
         }
+    }
+    
+    @IBAction func onAddFriend(_ sender: Any) {
+        addFriendAlert()
+    }
+    
+    @IBOutlet weak var friendsLabel: UILabel!
+    
+    @IBAction func onFriendsCount(_ sender: Any) {
+        print("tapped")
+    }
+    
+    @IBAction func onLogout(_ sender: Any) {
+        logoutAlert()
+    }
+    
+    @IBOutlet weak var profileImageView: UIImageView!
+    
+    
+    @IBAction func onProfileImage(_ sender: Any) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        picker.sourceType = .photoLibrary
+        present(picker, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -255,16 +224,7 @@ extension HomeViewController: userProtocol {
     }
     
     func gotRestaurants() {
-        if currentUser.userReturned.favoriteRestaurants.isEmpty == false
-        {
-            globalCounter = currentUser.userReturned.favoriteRestaurants.count //total number of restaurants
-
-            if (globalCounter != search.favoriteRestaurants.count){
-                search.favoriteRestaurants.removeAll()
-                globalIndex = 0
-                search.getSingleRestaurant(restaurantID: currentUser.userReturned.favoriteRestaurants[globalIndex])
-            }
-        }
+        
     }
     
     func gotError(error: Error) {
@@ -276,37 +236,4 @@ extension HomeViewController: userProtocol {
         tempURL = currentUser.userReturned.profilePicture
         setImageViewsImageFromURL(theImageURL: tempURL)
     }
-}
-
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return search.favoriteRestaurants.count //number of cells
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("hi")
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoritesCollectionViewCell", for: indexPath) as! FavoritesCollectionViewCell
-        cell.favoriteLabel.text = search.favoriteRestaurants[indexPath.row].restaurantName
-        cell.setCellImage(theImageURL: search.favoriteRestaurants[indexPath.row].restaurantImage_url)
-        return cell
-    }
-    func collectionView( _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: (favoriteCollectionView.frame.size.width/3) - 3,
-                          height: (favoriteCollectionView.frame.size.width/3) - 3)
-        }
-
-    func collectionView( _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-            return 1
-        }
-
-    func collectionView( _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-            return 1
-        }
-
-    func collectionView( _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-            return UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
-        }
-    
 }

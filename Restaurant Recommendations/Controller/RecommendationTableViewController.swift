@@ -221,7 +221,7 @@ extension RecommendationTableViewController: userProtocol
                 
         if currentUser.userReturned.favoriteRestaurants.isEmpty == false && friend.userReturned.favoriteRestaurants.isEmpty == false
         {
-            globalCounter = friend.userReturned.favoriteRestaurants.count //total number of restaurants
+            globalCounter = friend.userReturned.favoriteRestaurants.count
             
             search.getSingleRestaurant(restaurantID: friend.userReturned.favoriteRestaurants[globalIndex])
             
