@@ -2,8 +2,7 @@
 //  HomeViewController.swift
 //  Restaurant Recommendations
 //
-//  Created by Richard Basdeo on 4/18/21.
-//
+
 
 import UIKit
 import Firebase
@@ -26,6 +25,12 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
         
     }
+    
+    
+    
+    @IBOutlet weak var searchButtonOutlet: UIButton!
+    
+    
     
     
     let firebase = FirebaseHelper()
@@ -82,6 +87,8 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
         profileImageView.isHidden = true
         friendsLabel.isHidden = true
+        
+        Styling.styleButton(theButton: searchButtonOutlet)
 
         self.favoriteCollectionView.reloadData()
         
@@ -131,7 +138,9 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func logoutAndLeave(){
         firebase.signOutUser()
         UserDefaults.standard.set(false, forKey: "loginSuccess")
-        self.dismiss(animated: true, completion: nil)
+        alert.presentAlert(title: "Success!", message: "You have signed out.", viewController: self) {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     func logoutAlert(){
@@ -241,7 +250,7 @@ extension HomeViewController: userProtocol {
             self.friendsLabel.isHidden = false
         }
         friendsCounter = currentUser.userReturned.friends.count
-        friendsLabel.text = String(friendsCounter) + " friends"
+        friendsLabel.text = String(friendsCounter) + " Friends"
     }
     
     func gotRestaurants() {
