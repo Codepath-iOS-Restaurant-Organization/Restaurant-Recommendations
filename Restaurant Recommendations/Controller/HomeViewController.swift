@@ -2,8 +2,7 @@
 //  HomeViewController.swift
 //  Restaurant Recommendations
 //
-//  Created by Richard Basdeo on 4/18/21.
-//
+
 
 import UIKit
 import Firebase
