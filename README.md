@@ -28,8 +28,8 @@ Restaurant recommendation app for friends, family, and couples who have a hard t
 - [x] Search restaurants
 - [x] Add restaurants to favorites
 - [x] Add friends
-* See friend's favorited restaurants
-* Restaurant recomendtions based on both user's restaurant list.
+- [x] See friend's favorited restaurants
+- [x] Restaurant recomendtions based on both user's restaurant list.
 
 **Optional Nice-to-have Stories**
 
