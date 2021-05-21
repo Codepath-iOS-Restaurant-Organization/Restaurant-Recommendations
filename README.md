@@ -33,7 +33,7 @@ Restaurant recommendation app for friends, family, and couples who have a hard t
 
 **Optional Nice-to-have Stories**
 
-* Texting a friend within the app to look at a restaurant.
+- [x] Texting a friend within the app to look at a restaurant.
 
 ### 2. Screen Archetypes
 
