@@ -13,6 +13,7 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var favoriteLabel: UILabel!
     
+    var favoriteId: String!
     
     func setCellImage (theImageURL: String){
         if let url = URL(string: theImageURL){
