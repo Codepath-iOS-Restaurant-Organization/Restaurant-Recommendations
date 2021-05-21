@@ -37,8 +37,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     var globalCounter = 0
     var globalIndex = 0
     var search = Search()
-   
-    
+    var chosenRestaurant: Restaurant?
  
     @IBAction func onAddFriend(_ sender: Any) {
         addFriendAlert()
@@ -47,7 +46,6 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var friendsLabel: UILabel!
     
     @IBAction func onFriendsCount(_ sender: Any) {
-        print("tapped")
         self.performSegue(withIdentifier: "friendsView", sender: self)
     }
     
@@ -68,7 +66,28 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var favoriteCollectionView: UICollectionView!
     
     
+    @IBAction func onFavRestaurant(_ sender: UITapGestureRecognizer) {
+        let point = sender.location(in: favoriteCollectionView)
+        let indexPath = favoriteCollectionView?.indexPathForItem(at: point) ?? [0,0]
+        let cell = favoriteCollectionView.cellForItem(at: indexPath) as! FavoritesCollectionViewCell
+        print(cell.favoriteId)
+        var pos = 0
+        for restaurant in search.favoriteRestaurants{
+            if(restaurant.restaurantID == cell.favoriteId){
+                break
+            }
+            pos+=1
+        }
+        chosenRestaurant = search.favoriteRestaurants[pos]
+        performSegue(withIdentifier: "favoriteToDetail", sender: self)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! RestaurantDetailViewController
+        destinationVC.chosenRestaurant = chosenRestaurant
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         firebase.delegate = self
@@ -113,6 +132,9 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         dismiss(animated: true, completion: nil)
     }
+    
+    
+
     
     //Code for addFriend button:
     func addFriendAlert(){
@@ -276,10 +298,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("hi")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoritesCollectionViewCell", for: indexPath) as! FavoritesCollectionViewCell
         cell.favoriteLabel.text = search.favoriteRestaurants[indexPath.row].restaurantName
         cell.setCellImage(theImageURL: search.favoriteRestaurants[indexPath.row].restaurantImage_url)
+        cell.favoriteId = search.favoriteRestaurants[indexPath.row].restaurantID
         return cell
     }
     func collectionView( _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
