@@ -320,7 +320,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="xFb-yq-gRu">
-                                <rect key="frame" x="10" y="473.5" width="404" height="82.5"/>
+                                <rect key="frame" x="10" y="461.5" width="404" height="82.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASX-y5-f9n">
                                         <rect key="frame" x="0.0" y="0.0" width="404" height="20.5"/>
@@ -348,7 +348,8 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LoI-NB-Pvz">
-                                <rect key="frame" x="100" y="656" width="214" height="30"/>
+                                <rect key="frame" x="100" y="644" width="214" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Add To Favorites"/>
                                 <connections>
                                     <action selector="addToFavoritesPressed:" destination="PZA-ta-9Qy" eventType="touchUpInside" id="BhW-zS-ZSt"/>
@@ -378,6 +379,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="KRK-GU-puW"/>
                     <connections>
+                        <outlet property="addToFavoritesButton" destination="LoI-NB-Pvz" id="IwG-3m-88r"/>
                         <outlet property="dollarSignLabel" destination="e8v-Bz-v39" id="495-cF-KVF"/>
                         <outlet property="phoneNumberLabel" destination="ASX-y5-f9n" id="47I-RO-Zsb"/>
                         <outlet property="restaurantImageView" destination="Zbm-Mv-QH9" id="nt6-H5-cvB"/>
@@ -613,9 +615,9 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVR-9N-PJs">
-                                <rect key="frame" x="150" y="702" width="114" height="42"/>
+                                <rect key="frame" x="30" y="702" width="354" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Search"/>
+                                <state key="normal" title="Search Favorite Restaurants"/>
                                 <connections>
                                     <segue destination="fzy-Dk-zkh" kind="show" id="6xY-5J-ERC"/>
                                 </connections>
@@ -631,8 +633,8 @@
                             <constraint firstItem="FfP-gg-zoa" firstAttribute="top" secondItem="NM0-35-4VH" secondAttribute="top" constant="10" id="on6-yq-PhX"/>
                             <constraint firstItem="oh4-Vh-nfD" firstAttribute="leading" secondItem="NM0-35-4VH" secondAttribute="leading" id="phK-FM-vhG"/>
                             <constraint firstItem="NM0-35-4VH" firstAttribute="bottom" secondItem="GVR-9N-PJs" secondAttribute="bottom" constant="30" id="qlJ-CY-K5r"/>
-                            <constraint firstItem="NM0-35-4VH" firstAttribute="trailing" secondItem="GVR-9N-PJs" secondAttribute="trailing" constant="150" id="rul-eW-fjq"/>
-                            <constraint firstItem="GVR-9N-PJs" firstAttribute="leading" secondItem="NM0-35-4VH" secondAttribute="leading" constant="150" id="zlY-iE-FWE"/>
+                            <constraint firstItem="NM0-35-4VH" firstAttribute="trailing" secondItem="GVR-9N-PJs" secondAttribute="trailing" constant="30" id="rul-eW-fjq"/>
+                            <constraint firstItem="GVR-9N-PJs" firstAttribute="leading" secondItem="NM0-35-4VH" secondAttribute="leading" constant="30" id="zlY-iE-FWE"/>
                             <constraint firstItem="GVR-9N-PJs" firstAttribute="top" secondItem="oh4-Vh-nfD" secondAttribute="bottom" constant="10" id="zpB-HC-O8H"/>
                         </constraints>
                     </view>
@@ -654,6 +656,7 @@
                         <outlet property="favoriteCollectionView" destination="oh4-Vh-nfD" id="KRO-4N-Qtk"/>
                         <outlet property="friendsLabel" destination="HIs-vt-nN3" id="Kut-QC-yuq"/>
                         <outlet property="profileImageView" destination="OzN-vA-Ecs" id="6yf-Fy-R1U"/>
+                        <outlet property="searchButtonOutlet" destination="GVR-9N-PJs" id="ULU-oN-Rou"/>
                         <segue destination="f5s-WL-hX5" kind="show" identifier="friendsView" id="F8K-Rh-XQr"/>
                         <segue destination="nCX-1t-S28" kind="presentation" identifier="favoriteToDetail" id="WZ0-u5-iqz"/>
                     </connections>
@@ -722,7 +725,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lYs-av-g9W">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lYs-av-g9W">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="213"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="B4Y-t8-ucG">
@@ -763,7 +766,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="lUa-oo-7fO">
-                                <rect key="frame" x="10" y="473.5" width="404" height="82.5"/>
+                                <rect key="frame" x="10" y="461.5" width="404" height="82.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HwC-m7-M56">
                                         <rect key="frame" x="0.0" y="0.0" width="404" height="20.5"/>
@@ -791,7 +794,8 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZ5-4G-33g">
-                                <rect key="frame" x="100" y="656" width="214" height="30"/>
+                                <rect key="frame" x="100" y="644" width="214" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Add To Favorites"/>
                                 <connections>
                                     <action selector="addToFavoritesPressed:" destination="9LD-4w-0Cs" eventType="touchUpInside" id="9KE-bw-lLW"/>
@@ -821,6 +825,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="zTd-2W-H4r"/>
                     <connections>
+                        <outlet property="addToFavoritesButton" destination="JZ5-4G-33g" id="9nN-2e-al3"/>
                         <outlet property="dollarSignLabel" destination="fzf-li-4N9" id="aQE-4U-I4g"/>
                         <outlet property="phoneNumberLabel" destination="HwC-m7-M56" id="a0h-55-Q7E"/>
                         <outlet property="restaurantImageView" destination="lYs-av-g9W" id="wck-Q5-pJY"/>
@@ -844,7 +849,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FPH-8c-Gg2">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FPH-8c-Gg2">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="213"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="b3n-YJ-Ho1">
@@ -885,7 +890,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="txz-kI-ZKd">
-                                <rect key="frame" x="10" y="507.5" width="404" height="82.5"/>
+                                <rect key="frame" x="10" y="495.5" width="404" height="82.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEx-U0-UPr">
                                         <rect key="frame" x="0.0" y="0.0" width="404" height="20.5"/>
@@ -913,7 +918,8 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zme-fI-fS9">
-                                <rect key="frame" x="100" y="690" width="214" height="30"/>
+                                <rect key="frame" x="100" y="678" width="214" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Add To Favorites"/>
                                 <connections>
                                     <action selector="addToFavoritesPressed:" destination="nCX-1t-S28" eventType="touchUpInside" id="RCA-KN-En3"/>
@@ -943,6 +949,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="gYG-OU-euk"/>
                     <connections>
+                        <outlet property="addToFavoritesButton" destination="Zme-fI-fS9" id="Y4x-C9-mJE"/>
                         <outlet property="dollarSignLabel" destination="mre-WK-pgd" id="bjF-zj-MfT"/>
                         <outlet property="phoneNumberLabel" destination="XEx-U0-UPr" id="SMz-MO-5WZ"/>
                         <outlet property="restaurantImageView" destination="FPH-8c-Gg2" id="tLF-aG-e0T"/>

@@ -30,6 +30,7 @@
 		DDA318DC2623CA0000CC1A5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDA318DA2623CA0000CC1A5D /* Main.storyboard */; };
 		DDA318DE2623CA0000CC1A5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDA318DD2623CA0000CC1A5D /* Assets.xcassets */; };
 		DDA318E12623CA0000CC1A5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDA318DF2623CA0000CC1A5D /* LaunchScreen.storyboard */; };
+		DDCB152E26576206004B4B60 /* Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCB152D26576206004B4B60 /* Styling.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		DDA318DD2623CA0000CC1A5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDA318E02623CA0000CC1A5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDA318E22623CA0000CC1A5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDCB152D26576206004B4B60 /* Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styling.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 		DDA318EB2623CA4500CC1A5D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DDCB152D26576206004B4B60 /* Styling.swift */,
 				DD28646C2624B6970049B1C5 /* User and Restaurant Object */,
 				DD28645D2624B4D00049B1C5 /* Api and Firebase */,
 				DD28645B2624B4960049B1C5 /* Json */,
@@ -311,6 +314,7 @@
 				DD2864592624B4830049B1C5 /* JsonParse.swift in Sources */,
 				DDA318D92623CA0000CC1A5D /* LoginViewController.swift in Sources */,
 				DDA318D52623CA0000CC1A5D /* AppDelegate.swift in Sources */,
+				DDCB152E26576206004B4B60 /* Styling.swift in Sources */,
 				DD28646A2624B6260049B1C5 /* FirebaseHelper.swift in Sources */,
 				DD3DD813262D2B3400661A7F /* HomeViewController.swift in Sources */,
 				DD3DD823262D2CCE00661A7F /* RecommendationTableViewController.swift in Sources */,

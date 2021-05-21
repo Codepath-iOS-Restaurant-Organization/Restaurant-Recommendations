@@ -27,6 +27,10 @@ class RestaurantDetailViewController: UIViewController {
     let alert = MyAlert()
     
     
+    @IBOutlet weak var addToFavoritesButton: UIButton!
+    
+    
+    
     var chosenRestaurant: Restaurant?
     let fire = FirebaseHelper()
     
@@ -129,6 +133,8 @@ class RestaurantDetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         fire.delegate = self
+        Styling.customButton(for: addToFavoritesButton)
+        
     }
     
     @IBAction func addToFavoritesPressed(_ sender: UIButton) {

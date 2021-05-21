@@ -27,6 +27,9 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
     
+    @IBOutlet weak var searchButtonOutlet: UIButton!
+    
+    
     
     let firebase = FirebaseHelper()
     let alert = MyAlert()
@@ -106,6 +109,8 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         friendsLabel.isHidden = true
 
         self.favoriteCollectionView.reloadData()
+        
+        Styling.customButton(for: searchButtonOutlet)
         
     }
     
@@ -266,7 +271,7 @@ extension HomeViewController: userProtocol {
             self.friendsLabel.isHidden = false
         }
         friendsCounter = currentUser.userReturned.friends.count
-        friendsLabel.text = String(friendsCounter) + " friends"
+        friendsLabel.text = String(friendsCounter) + " Friends"
     }
     
     func gotRestaurants() {

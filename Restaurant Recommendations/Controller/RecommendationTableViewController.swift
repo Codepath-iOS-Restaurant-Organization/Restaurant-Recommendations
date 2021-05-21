@@ -110,7 +110,7 @@ class RecommendationTableViewController: UITableViewController
         }
         else if (indexPath.section == 1)
         {
-            
+            cell.backgroundColor = Styling.tier1
             cell.restaurantNameLabel.text = differentArray[indexPath.row].restaurantName
             cell.phoneNumberLabel.text = differentArray[indexPath.row].restaurantPhoneNumber.toPhoneNumber()
             cell.categoryLabel.text = differentArray[indexPath.row].restaurantAlias
@@ -158,6 +158,8 @@ class RecommendationTableViewController: UITableViewController
             return "Other"
         }
     }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! RestaurantDetailViewController
@@ -250,7 +252,9 @@ extension RecommendationTableViewController : searchProtocol
     }
     
     func singleSearchDone() {
-        globalIndex += 1
-        checkSimilar(restaurantID: search.favoriteRestaurants[0].restaurantID)
+        if globalIndex != globalCounter {
+            globalIndex += 1
+            checkSimilar(restaurantID: search.favoriteRestaurants[0].restaurantID)
+        }
     }
 }
