@@ -212,6 +212,21 @@ func signUpUser(userEmail: String, userPassword: String){
 
 ![detail](https://user-images.githubusercontent.com/19720373/118346414-22e99a80-b509-11eb-800d-c3c73bb09ce6.gif)
 
+## Build Progress 4: Final Build
+
+### Viewing Current User's Favorite Restaurants
+![ViewFavoriteRestaurants](https://user-images.githubusercontent.com/19720373/119077133-c16e7380-b9c1-11eb-8f03-aeed294d372f.gif)
+
+### Adding New Restaurants To Favorites
+![AddingToFavorites](https://user-images.githubusercontent.com/19720373/119077179-d0edbc80-b9c1-11eb-877c-bb06900ffef1.gif)
+
+### Getting Recommendations Based on A Friend's List
+
+![Recommendations](https://user-images.githubusercontent.com/19720373/119077240-efec4e80-b9c1-11eb-97ca-ae6bd0a2dcd8.gif)
+
+
+
+
 
 
 
