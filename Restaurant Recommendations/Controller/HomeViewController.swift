@@ -83,8 +83,11 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! RestaurantDetailViewController
-        destinationVC.chosenRestaurant = chosenRestaurant
+        
+        if segue.identifier == "favoriteToDetail"{
+            let destinationVC = segue.destination as! RestaurantDetailViewController
+            destinationVC.chosenRestaurant = chosenRestaurant
+        }
     }
     
 
