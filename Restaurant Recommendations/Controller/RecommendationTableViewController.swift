@@ -223,7 +223,11 @@ extension RecommendationTableViewController: userProtocol
         {
             globalCounter = friend.userReturned.favoriteRestaurants.count //total number of restaurants
             
-            search.getSingleRestaurant(restaurantID: friend.userReturned.favoriteRestaurants[globalIndex])
+            if (globalCounter != search.favoriteRestaurants.count){
+            
+                globalIndex = 0
+                search.getSingleRestaurant(restaurantID: friend.userReturned.favoriteRestaurants[globalIndex])
+            }
             
         }
     }
