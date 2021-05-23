@@ -71,15 +71,13 @@ extension LoginViewController: firebaseProtocols {
             self.performSegue(withIdentifier: "loginToHome", sender: self)
         }
         
-        
     }
 
     func signInSuccessful() {
         UserDefaults.standard.set(true, forKey: "loginSuccess")
         
-        
         loginAlert.presentAlert(title: "Success !",
-                                message: "You have loged in.",
+                                message: "You have logged in.",
                                 viewController: self) {
             
             self.performSegue(withIdentifier: "loginToHome", sender: self)
