@@ -27,6 +27,8 @@ class LoginViewController: UIViewController {
         firebase.delegate = self
         // Do any additional setup after loading the view.
         firebase.delegate = self
+        Styling.customButton(for: loginButton)
+        Styling.customButton(for: signUpButton)
     }
 
 
