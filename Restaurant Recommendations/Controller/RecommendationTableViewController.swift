@@ -22,6 +22,7 @@ class RecommendationTableViewController: UITableViewController
     var globalIndex = 0
     
     var chosenRestaurant: Restaurant?
+    var runOnce = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +33,14 @@ class RecommendationTableViewController: UITableViewController
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-                
-        if let current = Auth.auth().currentUser?.email
-        {
-            currentUser.getUserRestaurants(email: current)
-            friend.getUserRestaurants(email: friendChosen)
+        
+        if runOnce == true {
+            runOnce = false
+            if let current = Auth.auth().currentUser?.email
+            {
+                currentUser.getUserRestaurants(email: current)
+                friend.getUserRestaurants(email: friendChosen)
+            }
         }
     }
 
