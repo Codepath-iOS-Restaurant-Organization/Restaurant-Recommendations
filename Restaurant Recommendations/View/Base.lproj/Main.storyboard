@@ -355,6 +355,14 @@
                                     <action selector="addToFavoritesPressed:" destination="PZA-ta-9Qy" eventType="touchUpInside" id="BhW-zS-ZSt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yRt-Fb-RhP">
+                                <rect key="frame" x="60" y="706" width="294" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Share With A Friend!"/>
+                                <connections>
+                                    <action selector="shareButtonPressed:" destination="PZA-ta-9Qy" eventType="touchUpInside" id="2lF-Xi-j6V"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PKP-X3-pvV"/>
                         <color key="backgroundColor" red="0.90588235289999997" green="0.90980392160000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -362,6 +370,7 @@
                             <constraint firstItem="Zbm-Mv-QH9" firstAttribute="top" secondItem="PKP-X3-pvV" secondAttribute="top" id="4lF-7C-Mt9"/>
                             <constraint firstItem="Zbm-Mv-QH9" firstAttribute="trailing" secondItem="PKP-X3-pvV" secondAttribute="trailing" id="7OM-tB-wgc"/>
                             <constraint firstItem="PKP-X3-pvV" firstAttribute="bottom" secondItem="LoI-NB-Pvz" secondAttribute="bottom" constant="88" id="ED2-X7-kKk"/>
+                            <constraint firstItem="PKP-X3-pvV" firstAttribute="trailing" secondItem="yRt-Fb-RhP" secondAttribute="trailing" constant="60" id="FNz-Is-enO"/>
                             <constraint firstItem="PKP-X3-pvV" firstAttribute="trailing" secondItem="xFb-yq-gRu" secondAttribute="trailing" id="Hb8-n7-Mav"/>
                             <constraint firstItem="cfO-7M-W1g" firstAttribute="leading" secondItem="PKP-X3-pvV" secondAttribute="leading" constant="10" id="INq-VQ-Mo8"/>
                             <constraint firstItem="42l-m6-Qer" firstAttribute="leading" secondItem="PKP-X3-pvV" secondAttribute="leading" constant="10" id="Kzy-V2-dws"/>
@@ -370,11 +379,13 @@
                             <constraint firstItem="PKP-X3-pvV" firstAttribute="trailing" secondItem="42l-m6-Qer" secondAttribute="trailing" id="YNc-Z1-J4e"/>
                             <constraint firstItem="xFb-yq-gRu" firstAttribute="top" secondItem="42l-m6-Qer" secondAttribute="bottom" constant="30" id="ZOd-sS-jTG"/>
                             <constraint firstItem="xFb-yq-gRu" firstAttribute="leading" secondItem="PKP-X3-pvV" secondAttribute="leading" constant="10" id="caF-ps-sjF"/>
+                            <constraint firstItem="yRt-Fb-RhP" firstAttribute="leading" secondItem="PKP-X3-pvV" secondAttribute="leading" constant="60" id="cm0-Nc-6IP"/>
                             <constraint firstItem="42l-m6-Qer" firstAttribute="top" secondItem="cfO-7M-W1g" secondAttribute="bottom" constant="10" id="dbJ-1l-IBe"/>
                             <constraint firstItem="cfO-7M-W1g" firstAttribute="top" secondItem="Zbm-Mv-QH9" secondAttribute="bottom" constant="10" id="gdM-Tz-yZu"/>
                             <constraint firstItem="Zbm-Mv-QH9" firstAttribute="leading" secondItem="PKP-X3-pvV" secondAttribute="leading" id="rUe-k1-OI8"/>
                             <constraint firstItem="PKP-X3-pvV" firstAttribute="trailing" secondItem="cfO-7M-W1g" secondAttribute="trailing" id="tya-SW-yfv"/>
                             <constraint firstItem="LoI-NB-Pvz" firstAttribute="top" secondItem="xFb-yq-gRu" secondAttribute="bottom" constant="100" id="uvH-X1-QoU"/>
+                            <constraint firstItem="yRt-Fb-RhP" firstAttribute="top" secondItem="LoI-NB-Pvz" secondAttribute="bottom" constant="20" id="z0R-2F-ci3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KRK-GU-puW"/>
@@ -384,6 +395,7 @@
                         <outlet property="phoneNumberLabel" destination="ASX-y5-f9n" id="47I-RO-Zsb"/>
                         <outlet property="restaurantImageView" destination="Zbm-Mv-QH9" id="nt6-H5-cvB"/>
                         <outlet property="restaurantNameLabel" destination="X9V-dB-y8k" id="JaJ-so-VnZ"/>
+                        <outlet property="shareButtonOutlet" destination="yRt-Fb-RhP" id="mHX-mm-ScT"/>
                         <outlet property="starImageView" destination="auj-E1-y2S" id="mIJ-mf-bad"/>
                         <outlet property="stateZipCodeLabel" destination="0hw-92-i0A" id="aEH-uw-hjI"/>
                         <outlet property="streetCityLabel" destination="WW1-bS-VHI" id="lke-cE-PAL"/>

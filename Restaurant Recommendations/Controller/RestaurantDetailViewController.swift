@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import MessageUI
 
 class RestaurantDetailViewController: UIViewController {
 
@@ -25,9 +26,13 @@ class RestaurantDetailViewController: UIViewController {
     @IBOutlet weak var restaurantImageView: UIImageView!
     
     let alert = MyAlert()
+    let composeMessage = MFMessageComposeViewController()
     
     
     @IBOutlet weak var addToFavoritesButton: UIButton!
+    
+    @IBOutlet weak var shareButtonOutlet: UIButton!
+    
     
     
     
@@ -134,6 +139,7 @@ class RestaurantDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         fire.delegate = self
         Styling.customButton(for: addToFavoritesButton)
+        Styling.customButton(for: shareButtonOutlet)
         
     }
     
@@ -143,6 +149,54 @@ class RestaurantDetailViewController: UIViewController {
             fire.addFavoriteRestaurant(theID: id)
         }
     }
+    
+    
+    @IBAction func shareButtonPressed(_ sender: UIButton) {
+        
+        if MFMessageComposeViewController.canSendText() {
+            composeMessage.messageComposeDelegate = self
+            if let chosen = chosenRestaurant {
+                composeMessage.body = "Hey! Do you want to try: \n \(chosen.restaurantName). It is located at: \n \(chosen.restaurantAddress.address1) \n \(chosen.restaurantAddress.city) \(chosen.restaurantAddress.state), \(chosen.restaurantAddress.zip_code) \n It has a \(chosenRestaurant?.restaurantRating ?? 0) rating."
+                
+                
+                if MFMessageComposeViewController.canSendAttachments() {
+                    
+                    if let imageData = restaurantImageView.image?.pngData() {
+                        composeMessage.addAttachmentData(imageData, typeIdentifier: "image/png", filename: "restaurantImage.png")
+                    }
+                }
+                
+                self.present(composeMessage, animated: true, completion: nil)
+                
+                
+                
+            }
+        }
+        
+        
+        
+        
+        
+    }
+    
+    
+}
+
+extension RestaurantDetailViewController: MFMessageComposeViewControllerDelegate {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        
+        if result == .sent {
+            composeMessage.dismiss(animated: true) {
+                self.alert.presentAlert(title: "Success", message: "Message Has Been Sent.", viewController: self) {
+                    
+                }
+            }
+        }
+        else if (result == .cancelled){
+            composeMessage.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     
 }
 
