@@ -224,6 +224,10 @@ func signUpUser(userEmail: String, userPassword: String){
 
 ![Recommendations](https://user-images.githubusercontent.com/19720373/119077240-efec4e80-b9c1-11eb-97ca-ae6bd0a2dcd8.gif)
 
+## Final Project
+![Ix3qwRIl](https://user-images.githubusercontent.com/19720373/120053078-4545e280-bff6-11eb-8802-4e6d4187c725.gif)
+
+
 
 
 
